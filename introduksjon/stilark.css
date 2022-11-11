@@ -1,0 +1,45 @@
+body{
+    background-color: aqua;
+}   
+#overskrift{ 
+    background-color: bisque;
+    padding: 20px; 
+    width: 300px;
+    border: 9px solid red;
+}
+
+   
+h2{background-color: orange;}
+h2{text-decoration: wavy;}
+button{background-color: #8a2be2;}
+button{flex: size adjust 40px;}
+
+.guleKantlinjer {border: 10px #8a2be2;}
+body{
+    margin-left: 25px auto;
+    border: 1px solid salmon;
+    padding: 20px 40px;
+}
+.uthevetSitat {
+    background-color: rgb(169, 97, 169);
+}
+.uthevetOrd {
+    background-color: yellow;
+    color: grey
+    ;
+}
+#ABC {
+    width: 600px;
+    height: 600px;
+    border: 2px solid grey;
+    color: black;
+    padding: 2em;
+    margin:auto;
+    background-color: blue;
+}
+#ABD {
+    color: red;
+}
+div:nth-child(odd) {
+    background-color: cornflowerblue;
+}

@@ -1,0 +1,98 @@
+
+#hoved{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    gap: 0px;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(10,1fr); 
+    grid-template-areas: 
+    /* Grunnopsett for grid er hentet fra eget tidligere arbeid */
+    "h h h  h"
+    "p p hv s"
+    "p p hv s"
+    "p p hv s"
+    "p p hv s"
+    "p p hv s"
+    "p p hv s"
+    "p p hv s"
+    "p p hv s"
+    "p p hv s"
+    ;
+
+}
+.header{
+    padding: 5px;
+    background-color: rgb(232, 232,232);
+    grid-area: h;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* Kilde for ^^^ : https://www.w3docs.com/snippets/css/how-to-set-space-between-flexbox-items.html */
+    align-items: center;
+    
+}
+.h1{
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.h2{
+    gap: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.tekstfarge{
+    color: #04aa6d;
+}
+.passord{
+    padding: 5px;
+    grid-area: p;
+}
+.tabell{
+    border: solid black 1px;
+}
+.startside{
+    background-color: #04aa6d;
+    width: 600px;
+    text-align: center;
+}
+.overskrifter{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.hvorfor{
+    font-family: 'light 300', serif;
+    padding: 5px;
+    grid-area: hv;
+}
+.sånngjørdu{
+    padding: 5px;
+    grid-area: s;
+}
+#hoved > div{
+    border: solid 1px black;
+}
+
+@media screen and (max-width: 700px) { 
+    #hoved {
+        /* height: 100%;
+        width: 100%;
+        display: grid; */
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4,1fr);
+        grid-template-areas: 
+        "h"
+        "p"
+        "hv"
+        "s";
+    }
+    .header{
+        flex-direction: column;
+    }
+}
+/* Kode om media quires hentet fra Github^^^^^^^^^^^^^^^^^^^^^^^^ */

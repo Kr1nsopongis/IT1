@@ -1,0 +1,64 @@
+#hoved {
+    width: 300px;
+    height: 300px;
+    display: grid;
+    gap: 5px;
+    background-color: #c6c6c6;
+    /* grid-template-columns: 100px 100px 100px; Dette er den tungvinte måten å angi størrelsen på. Det er bedre å skrive det som fractions */
+    grid-template-columns:repeat(3, 1fr);
+    grid-template-rows:repeat(3,1fr) ;
+    
+    
+    
+    
+  }
+  #hoved2{
+    width: 300px;
+    height: 300px;
+    display: grid;
+    gap: 5px;
+    background-color: #c6c6c6;
+    /* grid-template-columns: 100px 100px 100px; Dette er den tungvinte måten å angi størrelsen på. Det er bedre å skrive det som fractions */
+    grid-template-columns:repeat(5, 1fr);
+    grid-template-rows:repeat(3,1fr) ;
+    grid-template-areas: 
+    "t v v v v" 
+    "t h h h h"
+    "g h h h h";
+  } 
+
+  #hoved > div {
+    background-color: #aac9c6;
+    border: 1px solid black;
+    /* margin: 10px; */
+  }
+  #hoved > div:nth-child(odd){
+    background-color: black;
+    color: white;
+}
+.topp    { grid-area : t; }
+.venstre { grid-area : v; }
+.hoyre   { grid-area : h; }
+
+#hoved2 > div{
+    background-color: #aac9c6;
+  border: 1px solid black;
+}
+.topp    { 
+    grid-area : t;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.venstre { grid-area : v; }
+.hoyre   { 
+    grid-area : h;
+    
+ }
+.venstrehjørne{
+    display: grid;
+    grid-area: g;
+    justify-items: center;
+    align-items: center;
+    padding: 10px;
+}
