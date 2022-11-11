@@ -3,7 +3,6 @@
     height: 300px;
     display: grid;
     gap: 5px;
-    background-color: #c6c6c6;
     /* grid-template-columns: 100px 100px 100px; Dette er den tungvinte måten å angi størrelsen på. Det er bedre å skrive det som fractions */
     grid-template-columns:repeat(3, 1fr);
     grid-template-rows:repeat(3,1fr) ;
