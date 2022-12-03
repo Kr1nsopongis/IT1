@@ -13,6 +13,7 @@ const terning6 = "C:\Users\Marius\Desktop\Koooooode\IT1\terning\Bilder\terning6.
  let terning1verdi = 0
  let terning2verdi = 0
  let terning3verdi = 0
+ let kastMengde = 0
 
 function terningkast(){
     return Math.floor(Math.random() * 6+1)
@@ -20,6 +21,19 @@ function terningkast(){
 
 førsteTerning.addEventListener('click', event=> {
     terning1Holdt = true
+})
+andreTerning.addEventListener('click', event=> {
+    terning2Holdt = true
+})
+tredjeTerning.addEventListener('click', event=> {
+    terning3Holdt = true
+})
+
+restart.addEventListener('click', event=>{
+     terning1Holdt = false
+     terning2Holdt = false
+     terning3Holdt = false
+     kastMengde = 0
 })
 
 function trill1(){
@@ -49,5 +63,16 @@ knapp.addEventListener('click', event => {
     trill1();
     trill2();
     trill3();
-  });
+
+  kastMengde += 1  
+  
+    if (terning1verdi === terning2verdi && terning2verdi === terning3verdi) {
+        document.getElementById("treLike").innerHTML = `Du trilte tre like på ${String(kastMengde)} kast`;
+    } else {
+        document.getElementById("treLike").innerHTML = "Du trilte ikke tre like"
+    }
+
+
+});
 console.log(terningkast())
+
