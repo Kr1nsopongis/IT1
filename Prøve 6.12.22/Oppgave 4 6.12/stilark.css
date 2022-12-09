@@ -1,0 +1,14 @@
+#hoved{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#Div{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 2px black;
+    margin-bottom: 10px;
+}
