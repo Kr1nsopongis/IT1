@@ -6,13 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="stilark.css">
 </head>
 <body>
    <form id="skjemaNyBruker">
     <p id="utskrift"></p>
     <p>Legg til ny person</p>
     <input type="text" id="nyttNavn" autofocus required placeholder="Navn   ">
-    <input type="number" id="nyAlder" required="Alder">
+    <input type="number" id="nyAlder" required placeholder="Alder">
+    <button type="submit" id="submit">Legg inn</button>
+   </form>
+   
+   <form id="skjemaNyttResultat">
+    <p id="utskriftResultat"></p>
+    <p>Legg til nytt resultat</p>
+    <input type="text" id="person" autofocus required placeholder="Navn   ">
+    <input type="number" id="result1" required placeholder="Resultat første øvelse">
+    <input type="number" id="result2" required placeholder="Resultat andre øvelse">
+    <input type="number" id="result3" required placeholder="Result tredje øvelse">
     <button type="submit" id="submit">Legg inn</button>
    </form>
 </body>

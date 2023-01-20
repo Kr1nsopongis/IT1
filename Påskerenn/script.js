@@ -40,6 +40,9 @@ let personer = [
 
 ]
 
+let arraySkjekk
+
+
 document.getElementById("skjemaNyBruker").onsubmit = function(evt) {
     evt.preventDefault();
     let nyttNavn = document.getElementById("nyttNavn").value;
@@ -72,3 +75,5 @@ const utskrift = document.querySelector("#utskrift");
     }; 
 
 console.log(personer)
+
+if (personer.includes(person)){}
