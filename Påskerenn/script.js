@@ -35,7 +35,7 @@ let personer = [
         result2: 2,
         result3: 4,
         tot: 7},
-
+    
         
 
 ]

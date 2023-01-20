@@ -9,6 +9,19 @@
 
 </head>
 <body>
-    <p id="print">test</p>
+    <form id="bruker">
+        <input type="text" id="Fornavn" placeholder="Fornavn">
+        <input type="text" id="Etternavn" placeholder="Etternavn">
+        <p>Hvilket kjønn er du?</p>
+            <input type="radio" name="kjonn" id="mann" value="mann">
+            <label for="mann">Mann</label>
+            <input type="radio" name="kjonn" id="dame">
+            <label for="dame">Kvinne</label>
+        <p>Er du over 18 år?</p>
+            <input type="radio" name="alderSjekk" id="alderJa">
+            <label for="alderJa">alderJa</label>
+            <input type="radio" name="alderSjekk" id="alderNei">
+        <button type="submit">Registrer din bruker</button>
+    </form>
 </body>
 </html>
