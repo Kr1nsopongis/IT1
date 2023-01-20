@@ -6,21 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test</title>
     <script src="javascript.js" defer></script>
-
+    <link rel="stylesheet" href="stilark.css">
 </head>
 <body>
+    <h1 id="overskrift">Registrer en ny bruker</h1>
     <form id="bruker">
-        <input type="text" id="Fornavn" placeholder="Fornavn">
+        <input type="text" id="Fornavn" placeholder="Fornavn" required autofocus><br>
         <input type="text" id="Etternavn" placeholder="Etternavn">
         <p>Hvilket kjønn er du?</p>
-            <input type="radio" name="kjonn" id="mann" value="mann">
-            <label for="mann">Mann</label>
-            <input type="radio" name="kjonn" id="dame">
-            <label for="dame">Kvinne</label>
+        <fieldset>
+            <input type="radio" name="kjonn" id="brukerKjonn" value="Mann">Mann
+            <input type="radio" name="kjonn" id="brukerKjonn" value="Dame">Kvinne<br>
+        </fieldset>
         <p>Er du over 18 år?</p>
-            <input type="radio" name="alderSjekk" id="alderJa">
-            <label for="alderJa">alderJa</label>
-            <input type="radio" name="alderSjekk" id="alderNei">
+        <fieldset>
+            <input type="radio" name="alderSjekk" id="brukerAlder">Ja
+            <input type="radio" name="alderSjekk" id="brukerAlder">Nei
+        </fieldset>
+        <p>Hva er dine interresser?</p>
+        <div id="interesser">
+            <input type="text" placeholder="Legg inn en ny interesse">
+            
+        </div>
         <button type="submit">Registrer din bruker</button>
     </form>
 </body>

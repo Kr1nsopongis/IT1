@@ -1,16 +1,23 @@
-let overskrift = document.createElement("h1");
-let kjonn = document.getElementById("mann");
 let ugyldigAlder = document.getElementById("alderNei");
+let kjonn = "";
+let brukere = ;
 
 document.getElementById("bruker").addEventListener("submit", function(evt) {
     evt.preventDefault();
     
-    let navnInn = document.getElementById("innNavn").value;
-    let alderInn = parseInt(document.getElementById("innAlder").value);
+    let navn = document.getElementById("Fornavn").value + " " + document.getElementById("Etternavn").value;
+    kjonn = document.getElementById("brukerKjonn").value;
+    console.log(navn);
+    console.log(kjonn);
+});
 
-    console.log("ID: " + deltakerIDNr + ", navn: " + navnInn + ", alder: " + alderInn);
-
+document.getElementById("interesser").addEventListener("submit", function(evt) {
+    evt.preventDefault();
     
+    let navn = document.getElementById("Fornavn").value + " " + document.getElementById("Etternavn").value;
+    kjonn = document.getElementById("brukerKjonn").value;
+    console.log(navn);
+    console.log(kjonn);
 });
 
 // fetch('https://randomuser.me/api/?results=1&?gender='+ kjonn)
@@ -27,5 +34,4 @@ document.getElementById("bruker").addEventListener("submit", function(evt) {
 //     console.log("Alder: " + svar.results[0].registered.age)
 //     console.log(svar.results[0].login.password)   
 // }
-console.log(ugyldigAlder.value)
-console.log(kjonn)
+
