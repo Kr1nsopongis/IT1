@@ -1,24 +1,20 @@
 let ugyldigAlder = document.getElementById("alderNei");
-let kjonn = "";
-let brukere = ;
+let brukere = [];
+
 
 document.getElementById("bruker").addEventListener("submit", function(evt) {
     evt.preventDefault();
+
+    if (parseInt.document.getElementsByName("alderSkjekk").value = 1){
+        let nyPersBrukernavn = document.getElementById("")
+        let nyttNavn = document.getElementById("fornavn").value + " " + document.getElementById("etternavn").value;
+        let nyPersKjonn = document.getElementById("brukerKjonn").value;
+        console.log(nyttNavn);
+        console.log(nyPersKjonn);
+    }
     
-    let navn = document.getElementById("Fornavn").value + " " + document.getElementById("Etternavn").value;
-    kjonn = document.getElementById("brukerKjonn").value;
-    console.log(navn);
-    console.log(kjonn);
 });
 
-document.getElementById("interesser").addEventListener("submit", function(evt) {
-    evt.preventDefault();
-    
-    let navn = document.getElementById("Fornavn").value + " " + document.getElementById("Etternavn").value;
-    kjonn = document.getElementById("brukerKjonn").value;
-    console.log(navn);
-    console.log(kjonn);
-});
 
 // fetch('https://randomuser.me/api/?results=1&?gender='+ kjonn)
 //       .then(response => response.json())

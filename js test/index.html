@@ -11,24 +11,29 @@
 <body>
     <h1 id="overskrift">Registrer en ny bruker</h1>
     <form id="bruker">
-        <input type="text" id="Fornavn" placeholder="Fornavn" required autofocus><br>
-        <input type="text" id="Etternavn" placeholder="Etternavn">
-        <p>Hvilket kjønn er du?</p>
-        <fieldset>
-            <input type="radio" name="kjonn" id="brukerKjonn" value="Mann">Mann
-            <input type="radio" name="kjonn" id="brukerKjonn" value="Dame">Kvinne<br>
-        </fieldset>
-        <p>Er du over 18 år?</p>
-        <fieldset>
-            <input type="radio" name="alderSjekk" id="brukerAlder">Ja
-            <input type="radio" name="alderSjekk" id="brukerAlder">Nei
-        </fieldset>
-        <p>Hva er dine interresser?</p>
-        <div id="interesser">
-            <input type="text" placeholder="Legg inn en ny interesse">
-            
-        </div>
+        <h2>Venligst fyll ut feltene nedenfor</h2>
+        <input type="text" id="brukernavn" placeholder="Brukernavn" required autofocus><br>
+        <input type="text" id="passord" placeholder="Passord" required><br>
+        <input type="email" id="email" placeholder="Epost adresse"><br>
+        <input type="text" id="fornavn" placeholder="Fornavn" required><br>
+        <input type="text" id="etternavn" placeholder="Etternavn" required><br>
+
+        
+        <fieldset form="bruker">
+            <legend>Hvilket kjønn er du?</legend><br>
+            <input type="radio" name="kjonn" id="brukerKjonn" value="Mann">Herre<br>
+            <input type="radio" name="kjonn" id="brukerKjonn" value="Kvinne">Kvinne<br>
+            <input type="radio" name="kjonn" id="brukerKjonn" value="Annet">Annet<br>   
+        </fieldset><br>
+
+        <fieldset form="bruker">
+            <legend>Er du over 18</legend>
+            <input type="radio" name="alderSjekk" id="alderJa" value="1">Ja
+            <input type="radio" name="alderSjekk" id="alderNei" value="0">Nei
+        </fieldset><br>
+
         <button type="submit">Registrer din bruker</button>
+        <p id="alert"></p>
     </form>
 </body>
 </html>
