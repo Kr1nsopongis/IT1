@@ -5,8 +5,8 @@ let brukere = [];
 document.getElementById("bruker").addEventListener("submit", function(evt) {
     evt.preventDefault();
 
-    if (parseInt.document.getElementsByName("alderSkjekk").value = 1){
-        let nyPersBrukernavn = document.getElementById("")
+    if (document.getElementById(alderJa).value === 1){
+        let nyPersBrukernavn = document.getElementById("brukernavn  ")
         let nyttNavn = document.getElementById("fornavn").value + " " + document.getElementById("etternavn").value;
         let nyPersKjonn = document.getElementById("brukerKjonn").value;
         console.log(nyttNavn);
