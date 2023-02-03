@@ -1,0 +1,13 @@
+
+
+#interesseboks{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+}
+#hoved{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}

@@ -12,11 +12,11 @@
     <h1 id="overskrift">Registrer en ny bruker</h1>
     <form id="bruker">
         <h2>Venligst fyll ut feltene nedenfor</h2>
-        <input type="text" id="brukernavn" placeholder="Brukernavn" required autofocus><br>
-        <input type="text" id="passord" placeholder="Passord" required><br>
+        <input type="text" id="brukernavn" placeholder="Brukernavn"  autofocus><br>
+        <input type="password" id="passord" placeholder="Passord" ><br>
         <input type="email" id="email" placeholder="Epost adresse"><br>
-        <input type="text" id="fornavn" placeholder="Fornavn" required><br>
-        <input type="text" id="etternavn" placeholder="Etternavn" required><br>
+        <input type="text" id="fornavn" placeholder="Fornavn" ><br>
+        <input type="text" id="etternavn" placeholder="Etternavn" ><br>
 
         
         <fieldset form="bruker">
@@ -25,15 +25,20 @@
             <input type="radio" name="kjonn" id="brukerKjonn" value="Kvinne">Kvinne<br>
             <input type="radio" name="kjonn" id="brukerKjonn" value="Annet">Annet<br>   
         </fieldset><br>
+<!-- 
+        <input type="radio" name="ape" value="alderJa">Ja<br>
+        <input type="radio" name="ape" value="alderNei">Nei<br> -->
 
         <fieldset form="bruker">
-            <legend>Er du over 18</legend>
-            <input type="radio" name="alderSjekk" id="alderJa" value="1">Ja
-            <input type="radio" name="alderSjekk" id="alderNei" value="0">Nei
+            <legend>Er du 18 år eller eldre?</legend><br>
+            <input type="radio" name="alder" id="brukerAlder" value="alderJa">Ja<br>
+            <input type="radio" name="alder" id="brukerAlder" value="alderNei">Nei<br>   
         </fieldset><br>
 
         <button type="submit">Registrer din bruker</button>
-        <p id="alert"></p>
+
+        
     </form>
+    <p id="registrert"></p>
 </body>
 </html>
