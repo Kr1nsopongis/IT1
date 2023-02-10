@@ -1,4 +1,26 @@
+#hoved{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    background-image: url("../brukerRegistrering/Bilder/BakgrunnBrukerReg.png");
+    background-size: 100%;
+    margin: auto;
+    width: 100%;
+}
 
+#header{
+    width: 100%;
+    height: 150px;
+    background-color: #86242a;
+    display: grid;
+    grid-template-columns: 6;
+    grid-template-rows: 1;
+    grid-area: 
+    ". . l l . ."
+    ;
+
+}
 
 #interesseboks{
     display: flex;
@@ -6,8 +28,5 @@
     justify-content: center;
     width: 300px;
 }
-#hoved{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
+
+.l{grid-area: l;}

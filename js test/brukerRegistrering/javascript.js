@@ -38,7 +38,7 @@ document.getElementById("bruker").addEventListener("submit", function(evt) {
         document.body.appendChild(nesteSide);
 
         document.getElementById("nesteSide").addEventListener("click", function(){
-            document.location.href = "file:///C:/Users/Marius/Desktop/Koooooode/IT1/js%20test/brukerInteresser/intresser.html"
+            document.location.href = "../brukerInteresser/intresser.html"
         });
     }
     else{
