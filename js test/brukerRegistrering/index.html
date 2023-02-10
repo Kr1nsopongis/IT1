@@ -8,7 +8,12 @@
     <script src="javascript.js" defer></script>
     <link rel="stylesheet" href="stilark.css">
 </head>
-<body>
+<body id="hoved">
+
+    <header id="header">
+        <img src="Bilder/Logo.png" alt="" class="l">
+    </header>
+
     <h1 id="overskrift">Registrer en ny bruker</h1>
     <form id="bruker">
         <h2>Venligst fyll ut feltene nedenfor</h2>
@@ -20,21 +25,18 @@
 
         
         <fieldset form="bruker">
-            <legend>Hvilket kjønn er du?</legend><br>
+            <legend id="hvit">Hvilket kjønn er du?</legend><br>
             <input type="radio" name="kjonn" id="brukerKjonn" value="Mann">Herre<br>
             <input type="radio" name="kjonn" id="brukerKjonn" value="Kvinne">Kvinne<br>
             <input type="radio" name="kjonn" id="brukerKjonn" value="Annet">Annet<br>   
         </fieldset><br>
-<!-- 
-        <input type="radio" name="ape" value="alderJa">Ja<br>
-        <input type="radio" name="ape" value="alderNei">Nei<br> -->
 
         <fieldset form="bruker">
-            <legend>Er du 18 år eller eldre?</legend><br>
-            <input type="radio" name="alder" id="brukerAlder" value="alderJa">Ja<br>
-            <input type="radio" name="alder" id="brukerAlder" value="alderNei">Nei<br>   
+            <legend id="hvit">Er du 18 år eller eldre?</legend><br>
+            <input type="radio" name="alder" value="alderJa">Ja<br>
+            <input type="radio" name="alder" value="alderNei">Nei<br>   
         </fieldset><br>
-
+        
         <button type="submit">Registrer din bruker</button>
 
         

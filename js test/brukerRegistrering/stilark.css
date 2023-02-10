@@ -1,3 +1,21 @@
+#hoved{
+    background-image: url("Bilder/BakgrunnBrukerReg.png");
+    background-size: 100%;
+}
+
+#header{
+    width: 100%;
+    height: 10%;
+    background-color: #86242a;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 6;
+    grid-template-rows: 1;
+    grid-area: 
+    ". . l l . ."
+    ;
+
+}
 
 html, body >*{
     width: auto;
@@ -12,3 +30,8 @@ html, body >*{
     width: 400px; 
 }
 
+#hvit{
+    color: white;
+}
+
+.l{grid-area: l;}

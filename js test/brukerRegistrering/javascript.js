@@ -53,10 +53,11 @@ document.getElementById("bruker").addEventListener("submit", function(evt) {
 
 
 console.log(brukere)
-// fetch('https://randomuser.me/api/?results=1&?gender='+ kjonn')
-//       .then(response => response.json())
-//       .then(response => behandleSvar(response))
-//       .catch(err => console.error(err));
+
+fetchfetch('https://randomuser.me/api/?results=' + antall + "&gender=" + kjonn + "&nat=" + nasjonalitet)
+      .then(response => response.json())
+      .then(response => behandleSvar(response))
+      .catch(err => console.error(err));
     
 
 
