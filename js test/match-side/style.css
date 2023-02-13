@@ -1,0 +1,21 @@
+div {
+    width: 25%;
+    height: 60%;
+    background-color: red;
+    margin: auto;
+    
+    position: absolute;
+    top: 200px;
+    left: 600px;
+    right: 600px;
+    
+    transition: all .3s ease-in-out;
+}
+
+#div {
+  opacity: 1;
+}
+  
+#div.fade {
+  opacity: 0;
+}
