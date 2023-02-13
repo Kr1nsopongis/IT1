@@ -16,7 +16,7 @@ document.getElementById("bruker").addEventListener("submit", function(evt) {
         let nyttNavn = document.getElementById("fornavn").value + " " + document.getElementById("etternavn").value;
         let nyPersKjonn = document.querySelector('input[name ="kjonn"]:checked').value;
         // console.log(nyttNavn);
-        // console.log(nyPersKjonn);
+        // console.log(nyPersKjonn);c
 
         let nyPerson = {
 
@@ -32,6 +32,8 @@ document.getElementById("bruker").addEventListener("submit", function(evt) {
         document.getElementById("registrert").innerHTML = ("Din bruker er registrert")
         
         const nesteSide = document.createElement("button");
+        nesteSide.style.width = "150px"
+        nesteSide.style.alignSelf = "center"
         nesteSide.innerText = "Neste side"; 
         nesteSide.id = "nesteSide"
         

@@ -29,4 +29,8 @@
     width: 300px;
 }
 
+#nesteSide{
+    width: 150px;
+}
+
 .l{grid-area: l;}
