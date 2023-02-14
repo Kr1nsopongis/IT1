@@ -9,8 +9,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button onclick="moveElementLeft();" >MoveLeft</button>
-    <button onclick="moveElementRight();" >MoveRight</button>
-    <div id="div"></div>
+    <button onclick="moveElementLeft(), getInfo();" >MoveLeft</button>
+    <button onclick="moveElementRight(), getInfo();" >MoveRight</button>
+    <div id="div">
+        <img id="profilbilde" src="bilder/defaultbilde.jpg" alt="">
+        <h1 id="navn"></h1>
+        <h3 id="bio"></h3>
+    </div>
 </body>
 </html>

@@ -29,7 +29,6 @@ let navnet = navn[Math.floor(Math.random() * navn.length)];
 
 function intens() {
     return intensitet[Math.floor(Math.random() * intensitet.length)];
-    
 };
 
 function arrArr() {
