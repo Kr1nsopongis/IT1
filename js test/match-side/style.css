@@ -3,6 +3,7 @@ div {
     height: 60%;
     background-color: red;
     margin: auto;
+    border-radius: 25px;
     
     position: absolute;
     top: 200px;
