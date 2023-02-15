@@ -1,23 +1,50 @@
-document.getElementById("leggTil").addEventListener("click", (evt) => {
+let x = "";
+let item = "";
+let inputFelt = document.getElementById("inputInteresse");
+let liste = document.getElementById("interesser");
+let lagring = [];
 
-    if (document.getElementById("interesser").value = "") {
+document.getElementById("leggTil").addEventListener("click", addInteresse)
+
+document.getElementById("fjern").addEventListener("click", fjernInteresse)
+
+//Sjekker etter tastaturtrykk
+document.onkeydown = function (e) {
+    if (e.key == "Enter") {
+        addInteresse()
+    }
+    if (e.key == "Delete") {
+        fjernInteresse()
+    }
+}
+
+function addInteresse() {
+    x = inputFelt.value;
+    if ( x === "") {
         console.log("LEGG TIL INTERESSE")
     } else {
-        var a = document.getElementById("interesser");
-        var candidate = document.getElementById("input");
         var li = document.createElement("li");
-        li.setAttribute('id', candidate.value);
-        li.appendChild(document.createTextNode(candidate.value));
-        a.appendChild(li);
+        li.setAttribute('id', inputFelt.value);
+        li.appendChild(document.createTextNode(inputFelt.value));
+        liste.appendChild(li);
+        lagring.unshift(x);
     }
-    
-    
-})
+    inputFelt.value = "";
+    inputFelt.focus();
+}
 
-document.getElementById("fjern").addEventListener("click", (evt) =>{
-    var a = document.getElementById("interesser");
-    var candidate = document.getElementById("input");
-    var item = document.getElementById(candidate.value);
-    a.removeChild(item);
-})
+function fjernInteresse() {
+    x = inputFelt.value;
 
+    if ( x === "") {
+        item = document.getElementById(lagring[0]);
+        liste.removeChild(item)
+        console.log(lagring);
+        let randomShit = lagring.shift();
+    }
+    else {
+        item = document.getElementById(inputFelt.value);
+        liste.removeChild(item);
+        inputFelt.value = "";
+    } 
+}
