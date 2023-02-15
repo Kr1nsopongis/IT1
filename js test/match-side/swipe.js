@@ -130,13 +130,13 @@ let song = ["Dans på bordet", "Fakk min X", "Tante", "Streetsa er helt GTA"];
 let artist = ["Ballinciaga", "Kevin Lauren", "Beathoven"];
 let book = ["Lord of the Rings", "Game of Thrones", "Matematikk R2", "Pride and Prejudice"];
 
-let otherFunFact = [
-    "Favorittmaten min er " + food[Math.floor(Math.random() * food.length)],
-    "Den beste filmen noensinne er " + movie[Math.floor(Math.random() * movie.length)],
-    song[Math.floor(Math.random() * song.length)] + " er en ekte banger",
-    "Jeg kjenner meg mye igjen med sangene til " + artist[Math.floor(Math.random() * artist.length)],
-    "Ikke match hvis du ikke har lest " + book[Math.floor(Math.random() * book.length)]
-];
+//let otherFunFact = [
+  //  "Favorittmaten min er " + food[Math.floor(Math.random() * food.length)],
+    //"Den beste filmen noensinne er " + movie[Math.floor(Math.random() * movie.length)],
+    //song[Math.floor(Math.random() * song.length)] + " er en ekte banger",
+    //"Jeg kjenner meg mye igjen med sangene til " + artist[Math.floor(Math.random() * artist.length)],
+    //"Ikke match hvis du ikke har lest " + book[Math.floor(Math.random() * book.length)]
+//];
 
 let arrayArray = [];
 
@@ -147,6 +147,13 @@ function intens() {
 
 //Denne funksjonen bestemmer hvilke interesser som dukker opp i profilene til folk
 function arrArr() {
+    let otherFunFact = [
+        "Favorittmaten min er " + food[Math.floor(Math.random() * food.length)],
+        "Den beste filmen noensinne er " + movie[Math.floor(Math.random() * movie.length)],
+        song[Math.floor(Math.random() * song.length)] + " er en ekte banger",
+        "Jeg kjenner meg mye igjen med sangene til " + artist[Math.floor(Math.random() * artist.length)],
+        "Ikke match hvis du ikke har lest " + book[Math.floor(Math.random() * book.length)]
+    ];
     arrayArray = [preInterest[Math.floor(Math.random() * preInterest.length)] + interests[Math.floor(Math.random() * interests.length)], otherFunFact[Math.floor(Math.random() * otherFunFact.length)]]
     return arrayArray[Math.floor(Math.random() * arrayArray.length)]
 }
