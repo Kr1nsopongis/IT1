@@ -21,11 +21,9 @@ window.addEventListener('mouseup', (e) => {
     totalx = startx - endx; //Regner ut totale lengden musen har dratt
     if (totalx > 50) { //Hvis det er over en viss mengde kjører funksjonen moveElementLeft()
         moveElementLeft()
-        getInfo()
     }
     if (totalx < -50) { //Samme for motsatt retning
         moveElementRight()
-        getInfo()
     }
 
     console.log(startx);
