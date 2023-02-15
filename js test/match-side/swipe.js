@@ -5,6 +5,7 @@ let totalx = 0;
 let startdivx = 0;
 let enddivx = 0;
 let totaldivx = 0;
+let spamCheck = 0;
 //Definerer div-element for mer tydelig kode lengre nede
 const div = document.getElementById('div');
 
@@ -42,11 +43,9 @@ div.addEventListener('mouseup', (e) => {
     totaldivx = startdivx - enddivx;
     if (totaldivx > 20) {
         moveElementLeft()
-        getInfo()
     }
     if (totaldivx < -20) {
         moveElementRight()
-        getInfo()
     }
 
     console.log(startdivx);
@@ -57,40 +56,48 @@ div.addEventListener('mouseup', (e) => {
 document.onkeydown = function (e) {
     if (e.key == "ArrowRight") {
         moveElementRight()
-        getInfo()
     }
     if (e.key == "ArrowLeft") {
         moveElementLeft()
-        getInfo()
     }
 }
 
 //Funksjonen endrer posisjon til div, og triggerer animasjon i style.css
 function moveElementLeft() {
+if (spamCheck == 0) {
+    spamCheck = 1;
     div.style.left = `10px`;
     div.classList.toggle('fade');
     setTimeout(() => { 
         div.style.top = '10px';
         div.style.left = '600px';
+        getInfo()
     }, 300 );
     setTimeout(() => { 
         div.style.top = '200px';
         div.classList.toggle('fade');
+        spamCheck = 0;
     }, 600 );
+}
 }
 
 //Samme for motsatt retning
 function moveElementRight() {
+if (spamCheck == 0) {    
+    spamCheck = 1;
     div.style.right = `-10px`;
     div.classList.toggle('fade');
     setTimeout(() => { 
         div.style.top = '10px';
         div.style.right = '600px';
+        getInfo()
     }, 300 );
     setTimeout(() => { 
         div.style.top = '200px';
         div.classList.toggle('fade');
+        spamCheck = 0;
     }, 600 );
+}
 }
 
 //Definerer et par variabler som er nødvendig til bio-genereringen
