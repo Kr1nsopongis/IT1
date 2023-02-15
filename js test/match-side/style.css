@@ -11,6 +11,7 @@ div {
     right: 600px;
     
     transition: all .22s ease-in-out;
+    user-select: none;
 }
 
 #div {

@@ -5,6 +5,7 @@ let totalx = 0;
 let startdivx = 0;
 let enddivx = 0;
 let totaldivx = 0;
+let spamCheck = 0;
 //Definerer div-element for mer tydelig kode lengre nede
 const div = document.getElementById('div');
 
@@ -20,11 +21,9 @@ window.addEventListener('mouseup', (e) => {
     totalx = startx - endx; //Regner ut totale lengden musen har dratt
     if (totalx > 50) { //Hvis det er over en viss mengde kjører funksjonen moveElementLeft()
         moveElementLeft()
-        getInfo()
     }
     if (totalx < -50) { //Samme for motsatt retning
         moveElementRight()
-        getInfo()
     }
 
     console.log(startx);
@@ -42,11 +41,9 @@ div.addEventListener('mouseup', (e) => {
     totaldivx = startdivx - enddivx;
     if (totaldivx > 20) {
         moveElementLeft()
-        getInfo()
     }
     if (totaldivx < -20) {
         moveElementRight()
-        getInfo()
     }
 
     console.log(startdivx);
@@ -57,40 +54,48 @@ div.addEventListener('mouseup', (e) => {
 document.onkeydown = function (e) {
     if (e.key == "ArrowRight") {
         moveElementRight()
-        getInfo()
     }
     if (e.key == "ArrowLeft") {
         moveElementLeft()
-        getInfo()
     }
 }
 
 //Funksjonen endrer posisjon til div, og triggerer animasjon i style.css
 function moveElementLeft() {
+if (spamCheck == 0) { //Spamcheck er for å hindre at man kan spamme knappene og tulle med posisjonen til div-en
+    spamCheck = 1;
     div.style.left = `10px`;
     div.classList.toggle('fade');
     setTimeout(() => { 
         div.style.top = '10px';
         div.style.left = '600px';
+        getInfo()
     }, 300 );
     setTimeout(() => { 
         div.style.top = '200px';
         div.classList.toggle('fade');
+        spamCheck = 0;
     }, 600 );
+}
 }
 
 //Samme for motsatt retning
 function moveElementRight() {
+if (spamCheck == 0) {    
+    spamCheck = 1;
     div.style.right = `-10px`;
     div.classList.toggle('fade');
     setTimeout(() => { 
         div.style.top = '10px';
         div.style.right = '600px';
+        getInfo()
     }, 300 );
     setTimeout(() => { 
         div.style.top = '200px';
         div.classList.toggle('fade');
+        spamCheck = 0;
     }, 600 );
+}
 }
 
 //Definerer et par variabler som er nødvendig til bio-genereringen
@@ -130,14 +135,6 @@ let song = ["Dans på bordet", "Fakk min X", "Tante", "Streetsa er helt GTA"];
 let artist = ["Ballinciaga", "Kevin Lauren", "Beathoven"];
 let book = ["Lord of the Rings", "Game of Thrones", "Matematikk R2", "Pride and Prejudice"];
 
-let otherFunFact = [
-    "Favorittmaten min er " + food[Math.floor(Math.random() * food.length)],
-    "Den beste filmen noensinne er " + movie[Math.floor(Math.random() * movie.length)],
-    song[Math.floor(Math.random() * song.length)] + " er en ekte banger",
-    "Jeg kjenner meg mye igjen med sangene til " + artist[Math.floor(Math.random() * artist.length)],
-    "Ikke match hvis du ikke har lest " + book[Math.floor(Math.random() * book.length)]
-];
-
 let arrayArray = [];
 
 //Denne funksjonen bare bestemmer om en setning skal slutte med . eller !
@@ -147,6 +144,13 @@ function intens() {
 
 //Denne funksjonen bestemmer hvilke interesser som dukker opp i profilene til folk
 function arrArr() {
+    let otherFunFact = [
+        "Favorittmaten min er " + food[Math.floor(Math.random() * food.length)],
+        "Den beste filmen noensinne er " + movie[Math.floor(Math.random() * movie.length)],
+        song[Math.floor(Math.random() * song.length)] + " er en ekte banger",
+        "Jeg kjenner meg mye igjen med sangene til " + artist[Math.floor(Math.random() * artist.length)],
+        "Ikke match hvis du ikke har lest " + book[Math.floor(Math.random() * book.length)]
+    ];
     arrayArray = [preInterest[Math.floor(Math.random() * preInterest.length)] + interests[Math.floor(Math.random() * interests.length)], otherFunFact[Math.floor(Math.random() * otherFunFact.length)]]
     return arrayArray[Math.floor(Math.random() * arrayArray.length)]
 }
