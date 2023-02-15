@@ -64,7 +64,7 @@ document.onkeydown = function (e) {
 
 //Funksjonen endrer posisjon til div, og triggerer animasjon i style.css
 function moveElementLeft() {
-if (spamCheck == 0) {
+if (spamCheck == 0) { //Spamcheck er for å hindre at man kan spamme knappene og tulle med posisjonen til div-en
     spamCheck = 1;
     div.style.left = `10px`;
     div.classList.toggle('fade');
@@ -136,14 +136,6 @@ let movie = ["Star Wars Episode I", "Cats: The Musical", "Hvalen som sa mø"];
 let song = ["Dans på bordet", "Fakk min X", "Tante", "Streetsa er helt GTA"];
 let artist = ["Ballinciaga", "Kevin Lauren", "Beathoven"];
 let book = ["Lord of the Rings", "Game of Thrones", "Matematikk R2", "Pride and Prejudice"];
-
-//let otherFunFact = [
-  //  "Favorittmaten min er " + food[Math.floor(Math.random() * food.length)],
-    //"Den beste filmen noensinne er " + movie[Math.floor(Math.random() * movie.length)],
-    //song[Math.floor(Math.random() * song.length)] + " er en ekte banger",
-    //"Jeg kjenner meg mye igjen med sangene til " + artist[Math.floor(Math.random() * artist.length)],
-    //"Ikke match hvis du ikke har lest " + book[Math.floor(Math.random() * book.length)]
-//];
 
 let arrayArray = [];
 
