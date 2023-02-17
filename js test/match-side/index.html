@@ -8,18 +8,16 @@
     <script src="swipe.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <button onclick="moveElementLeft();" >MoveLeft</button>
-    <button onclick="moveElementRight();" >MoveRight</button>
+<body id="hoved">
+    
     <div id="div">
         <img id="profilbilde" src="bilder/defaultbilde.jpg" alt="">
         <h1 id="navn"></h1>
         <h3 id="bio"></h3>
     </div>
-    <div id="hoved">
-        <h1>Huskeliste</h1> 
-        <input type="text"> <button class="ok">Legg til</button>
-        <div id="liste"></div>
+    <div id="knapp">
+        <button onclick="moveElementLeft();" >MoveLeft</button>
+        <button onclick="moveElementRight();" >MoveRight</button>
     </div>
 </body>
 </html>
