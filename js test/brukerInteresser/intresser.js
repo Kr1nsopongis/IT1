@@ -3,18 +3,32 @@ let item = "";
 let inputFelt = document.getElementById("inputInteresse");
 let liste = document.getElementById("interesser");
 let lagring = [];
+let baklengs = [];
 
-document.getElementById("leggTil").addEventListener("click", addInteresse)
+if (localStorage.getItem('førsteGangsSjekk') > 0) {
+    lagring = JSON.parse(localStorage.getItem('interesser'));
+    baklengs = lagring.reverse();
+}
+//let lagring = [];
 
-document.getElementById("fjern").addEventListener("click", fjernInteresse)
+for(let i = 0; i < baklengs.length; i++) {
+    var li = document.createElement("li");
+    li.setAttribute('id', baklengs[i]);
+    li.appendChild(document.createTextNode(baklengs[i]));
+    liste.appendChild(li);
+}
+
+document.getElementById("leggTil").addEventListener("click", addInteresse);
+document.getElementById("fjern").addEventListener("click", fjernInteresse);
+document.getElementById("gåVidere").addEventListener("click", gåVidere);
 
 //Sjekker etter tastaturtrykk
 document.onkeydown = function (e) {
     if (e.key == "Enter") {
-        addInteresse()
+        addInteresse();
     }
     if (e.key == "Delete") {
-        fjernInteresse()
+        fjernInteresse();
     }
 }
 
@@ -47,4 +61,9 @@ function fjernInteresse() {
         liste.removeChild(item);
         inputFelt.value = "";
     } 
+}
+
+function gåVidere() {
+    localStorage.setItem("interesser", JSON.stringify(lagring));
+    localStorage.setItem("førsteGangsSjekk", 1);
 }
