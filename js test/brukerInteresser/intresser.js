@@ -7,14 +7,14 @@ let baklengs = [];
 
 if (localStorage.getItem('førsteGangsSjekk') > 0) {
     lagring = JSON.parse(localStorage.getItem('interesser'));
-    baklengs = lagring.reverse();
+    lagring.reverse();
 }
 //let lagring = [];
 
-for(let i = 0; i < baklengs.length; i++) {
+for(let i = 0; i < lagring.length; i++) {
     var li = document.createElement("li");
-    li.setAttribute('id', baklengs[i]);
-    li.appendChild(document.createTextNode(baklengs[i]));
+    li.setAttribute('id', lagring[i]);
+    li.appendChild(document.createTextNode(lagring[i]));
     liste.appendChild(li);
 }
 
