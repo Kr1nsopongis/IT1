@@ -66,4 +66,5 @@ function fjernInteresse() {
 function gåVidere() {
     localStorage.setItem("interesser", JSON.stringify(lagring));
     localStorage.setItem("førsteGangsSjekk", 1);
+    document.location.href = "../match-side/index.html"
 }

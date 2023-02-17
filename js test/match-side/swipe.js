@@ -125,7 +125,9 @@ function behandleSvar(svar) {
 let bio = "";
 let greeting = ["Hei", "Hallo", "Vær hilset", "Yo"];
 let preInterest = ["Jeg liker ", "Jeg er interresert i ", "Det jeg brenner skikkelig for er ", "Jeg bryr meg veldig om "];
-let interests = ["videospill", "å gå tur", "lesing", "jobb"];
+let randomInterests = ["videospill", "å gå tur", "lesing", "jobb"];
+
+let interests = randomInterests.concat(JSON.parse(localStorage.getItem('interesser')))
 
 let intensitet = [". ", "! "];
 
