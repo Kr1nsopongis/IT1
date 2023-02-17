@@ -1,0 +1,14 @@
+.flagg {
+    opacity: 0.34;
+    height: 10%;
+    width: 10%;
+}
+
+.flagg.click {
+    opacity: 1;
+}
+
+.flaggContainer {
+    height: 300px;
+    width: 500px;
+}

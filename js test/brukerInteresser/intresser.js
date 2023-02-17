@@ -5,7 +5,7 @@ let liste = document.getElementById("interesser");
 let lagring = [];
 let baklengs = [];
 
-if (localStorage.getItem('førsteGangsSjekk') > 0) {
+if (localStorage.getItem('førsteGangsSjekk') > 1) {
     lagring = JSON.parse(localStorage.getItem('interesser'));
     lagring.reverse();
 }
@@ -65,6 +65,6 @@ function fjernInteresse() {
 
 function gåVidere() {
     localStorage.setItem("interesser", JSON.stringify(lagring));
-    localStorage.setItem("førsteGangsSjekk", 1);
-    document.location.href = "../match-side/index.html"
+    localStorage.setItem("førsteGangsSjekk", 2);
+    document.location.href = "../match-side/match.html"
 }
