@@ -18,6 +18,7 @@ document.getElementById("flagg_ukraina").addEventListener("click", (event) => {c
 document.getElementById("flagg_usa").addEventListener("click", (event) => {click('usa')});
 
 document.getElementById("gåVidere").addEventListener("click", gåVidere);
+document.getElementById("gåTilbake").addEventListener("click", gåTilbake);
 
 
 
@@ -48,4 +49,8 @@ function gåVidere() {
     localStorage.setItem("land", JSON.stringify(valgteLand));
     document.location.href = "../brukerInteresser/intresser.html"
     localStorage.setItem("førsteGangsSjekk", localStorage.getItem('førsteGangsSjekk') + 1);
+}
+
+function gåTilbake() {
+    document.location.href = "../brukerRegistrering/index.html"
 }

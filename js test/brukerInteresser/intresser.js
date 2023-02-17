@@ -21,6 +21,7 @@ for(let i = 0; i < lagring.length; i++) {
 document.getElementById("leggTil").addEventListener("click", addInteresse);
 document.getElementById("fjern").addEventListener("click", fjernInteresse);
 document.getElementById("gåVidere").addEventListener("click", gåVidere);
+document.getElementById("gåTilbake").addEventListener("click", gåTilbake);
 
 //Sjekker etter tastaturtrykk
 document.onkeydown = function (e) {
@@ -67,4 +68,8 @@ function gåVidere() {
     localStorage.setItem("interesser", JSON.stringify(lagring));
     localStorage.setItem("førsteGangsSjekk", 2);
     document.location.href = "../match-side/match.html"
+}
+
+function gåTilbake() {
+    document.location.href = "../preferanser/preferanser.html"
 }
