@@ -4,7 +4,7 @@
     text-align: center;
     align-items: center;
     background-image: url("../brukerRegistrering/Bilder/BakgrunnBrukerReg.png");
-    background-size: 100%;
+    background-size: auto;
     margin: auto;
     width: 100%;
 }
