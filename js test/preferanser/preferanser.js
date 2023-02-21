@@ -23,13 +23,19 @@ document.getElementById("gåTilbake").addEventListener("click", gåTilbake);
 
 
 let valgteLand = [];
+let valgteKjønn = [];
 
 if (localStorage.getItem('førsteGangsSjekk') > 0) {
     valgteLand = JSON.parse(localStorage.getItem('land'));
+    valgteKjønn = JSON.parse(localStorage.getItem('kjonnPreferanse'))
 }
 
 for(let i = 0; i < valgteLand.length; i++) {
     document.getElementById("flagg_" + valgteLand[i]).classList.toggle('click');
+}
+
+for(let i = 0; i < valgteKjønn.length; i++) {
+    document.getElementById("check" + valgteKjønn[i]).checked = true;
 }
 
 function click(country) {
@@ -47,8 +53,24 @@ function click(country) {
 
 function gåVidere() {
     localStorage.setItem("land", JSON.stringify(valgteLand));
-    document.location.href = "../brukerInteresser/intresser.html"
-    localStorage.setItem("førsteGangsSjekk", localStorage.getItem('førsteGangsSjekk') + 1);
+    //document.location.href = "../brukerInteresser/intresser.html"
+    localStorage.setItem("førsteGangsSjekk", 1);
+    let checkboxes = document.querySelectorAll('input[name="kjonn"]');
+    checkboxes.forEach((checkbox) => {
+        if (checkbox.checked === true) {
+            if (!valgteKjønn.includes(checkbox.value)) {
+                valgteKjønn.push(checkbox.value);
+            }
+        }
+        else {
+            valgteKjønn.splice(checkbox.value, 1);
+        }
+
+
+    });
+    alert(valgteKjønn);
+    
+    localStorage.setItem("kjonnPreferanse", JSON.stringify(valgteKjønn));
 }
 
 function gåTilbake() {
