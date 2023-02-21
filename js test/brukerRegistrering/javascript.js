@@ -40,8 +40,10 @@ document.getElementById("bruker").addEventListener("submit", function(evt) {
         document.body.appendChild(nesteSide);
 
         document.getElementById("nesteSide").addEventListener("click", function(){
+
             localStorage.setItem("bruker", JSON.stringify(brukere));
-            document.location.href = "../brukerInteresser/intresser.html"
+
+            document.location.href = "../preferanser/preferanser.html"
         });
     }
     else{
