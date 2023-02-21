@@ -1,21 +1,21 @@
-document.getElementById("flagg_spania").addEventListener("click", (event) => {click('spania')});
-document.getElementById("flagg_australia").addEventListener("click", (event) => {click('australia')});
-document.getElementById("flagg_brasil").addEventListener("click", (event) => {click('brasil')});
-document.getElementById("flagg_canada").addEventListener("click", (event) => {click('canada')});
-document.getElementById("flagg_sveits").addEventListener("click", (event) => {click('sveits')});
-document.getElementById("flagg_tyskland").addEventListener("click", (event) => {click('tyskland')});
-document.getElementById("flagg_finland").addEventListener("click", (event) => {click('finland')});
-document.getElementById("flagg_frankrike").addEventListener("click", (event) => {click('frankrike')});
-document.getElementById("flagg_storbritannia").addEventListener("click", (event) => {click('storbritannia')});
-document.getElementById("flagg_irland").addEventListener("click", (event) => {click('irland')});
-document.getElementById("flagg_india").addEventListener("click", (event) => {click('india')});
-document.getElementById("flagg_meksiko").addEventListener("click", (event) => {click('meksiko')});
-document.getElementById("flagg_nederland").addEventListener("click", (event) => {click('nederland')});
-document.getElementById("flagg_norge").addEventListener("click", (event) => {click('norge')});
-document.getElementById("flagg_russland").addEventListener("click", (event) => {click('russland')});
-document.getElementById("flagg_tyrkia").addEventListener("click", (event) => {click('tyrkia')});
-document.getElementById("flagg_ukraina").addEventListener("click", (event) => {click('ukraina')});
-document.getElementById("flagg_usa").addEventListener("click", (event) => {click('usa')});
+document.getElementById("flagg_ES").addEventListener("click", (event) => {click('ES')});
+document.getElementById("flagg_AU").addEventListener("click", (event) => {click('AU')});
+document.getElementById("flagg_BR").addEventListener("click", (event) => {click('BR')});
+document.getElementById("flagg_CA").addEventListener("click", (event) => {click('CA')});
+document.getElementById("flagg_CH").addEventListener("click", (event) => {click('CH')});
+document.getElementById("flagg_DE").addEventListener("click", (event) => {click('DE')});
+document.getElementById("flagg_FI").addEventListener("click", (event) => {click('FI')});
+document.getElementById("flagg_FR").addEventListener("click", (event) => {click('FR')});
+document.getElementById("flagg_GB").addEventListener("click", (event) => {click('GB')});
+document.getElementById("flagg_IE").addEventListener("click", (event) => {click('IE')});
+document.getElementById("flagg_IN").addEventListener("click", (event) => {click('IN')});
+document.getElementById("flagg_MX").addEventListener("click", (event) => {click('MX')});
+document.getElementById("flagg_NL").addEventListener("click", (event) => {click('NL')});
+document.getElementById("flagg_NO").addEventListener("click", (event) => {click('NO')});
+document.getElementById("flagg_RS").addEventListener("click", (event) => {click('RS')});
+document.getElementById("flagg_TR").addEventListener("click", (event) => {click('TR')});
+document.getElementById("flagg_UA").addEventListener("click", (event) => {click('UA')});
+document.getElementById("flagg_US").addEventListener("click", (event) => {click('US')});
 
 document.getElementById("gåVidere").addEventListener("click", gåVidere);
 document.getElementById("gåTilbake").addEventListener("click", gåTilbake);
@@ -62,7 +62,7 @@ function gåVidere() {
                 valgteKjønn.push(checkbox.value);
             }
         }
-        else {
+        else if (valgteKjønn.includes(checkbox.value)) {
             valgteKjønn.splice(checkbox.value, 1);
         }
 
