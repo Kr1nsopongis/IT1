@@ -33,6 +33,7 @@ document.onkeydown = function (e) {
     }
 }
 
+//Legger til en interesse
 function addInteresse() {
     x = inputFelt.value;
     if ( x === "") {
