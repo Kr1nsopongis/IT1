@@ -188,6 +188,7 @@ function lageURL() {
 //Denne funksjonen henter all informasjon vi trenger og putter det rett sted. Den starter også randomUserApi funksjonen
 function getInfo() {
     lageURL()
+    console.log(URL);
     fetch(URL)
         .then(response => response.json())
         .then(response => behandleSvar(response))
