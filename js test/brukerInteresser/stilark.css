@@ -34,3 +34,33 @@
 }
 
 .l{grid-area: l;}
+
+#inputInteresse,#leggTil,#fjern{
+    border: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #f2f2f2;
+  padding: 12px;
+  border-radius: 3px;
+  width: 400px;
+  font-size: 14px;
+  align-self: center;
+}
+
+#sideValg{
+    display: flex;
+    flex-direction: row;
+}
+
+#gåVidere,#gåTilbake{
+  
+    background: #f2f2f2;
+    padding: 12px;
+    border-radius: 3px;
+    width: 180px;
+    font-size: 14px;
+    
+   
+}

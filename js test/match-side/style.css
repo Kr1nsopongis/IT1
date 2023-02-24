@@ -11,7 +11,7 @@
   left: 600px;
   right: 600px;
   width: 25%;
-  height: 60%;
+  height: 75%;
   background-color: red;
   margin: auto;
   padding: 10px;
@@ -34,4 +34,14 @@
 
 #profilbilde{
   border-radius: 10px;
+}
+
+#moveRight,#moveLeft{
+  width: 150px;
+}
+
+#knapp{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

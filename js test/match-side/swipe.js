@@ -98,6 +98,9 @@ if (spamCheck == 0) {
 }
 }
 
+document.getElementById("moveLeft").addEventListener("click", moveElementLeft)
+document.getElementById("moveRight").addEventListener("click", moveElementRight)
+
 //Definerer et par variabler som er nødvendig til bio-genereringen
 let navn = "";
 let alder = 0;
