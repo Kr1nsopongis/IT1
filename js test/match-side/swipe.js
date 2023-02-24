@@ -164,9 +164,34 @@ bio = hei + intens() + arrArr() + intens() + arrArr() + intens();
 
 console.log(bio);
 
+let URL = "https://randomuser.me/api/?";
+
+function lageURL() {
+    URL = "https://randomuser.me/api/?";
+    let nasjonaliteter = JSON.parse(localStorage.getItem('land'));
+    console.log(nasjonaliteter);
+    if (nasjonaliteter.length > 0) {
+        URL = URL + "&nat="
+    }
+    for (let i = 0; i < nasjonaliteter.length; i++) {
+        URL = URL + nasjonaliteter[i] + ",";
+    }
+
+    let kjønn = JSON.parse(localStorage.getItem('kjonnPreferanse'));
+    console.log(kjønn);
+    if (kjønn.length > 0) {
+        URL = URL + "&gender="
+    }
+    for (let i = 0; i < kjønn.length; i++) {
+        URL = URL + kjønn[i] + ","
+    }
+    console.log(URL);
+}
+
 //Denne funksjonen henter all informasjon vi trenger og putter det rett sted. Den starter også randomUserApi funksjonen
 function getInfo() {
-    fetch('https://randomuser.me/api/')
+    lageURL()
+    fetch(URL)
         .then(response => response.json())
         .then(response => behandleSvar(response))
         .catch(err => console.error(err));

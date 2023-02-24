@@ -53,7 +53,6 @@ function click(country) {
 
 function gåVidere() {
     localStorage.setItem("land", JSON.stringify(valgteLand));
-    //document.location.href = "../brukerInteresser/intresser.html"
     localStorage.setItem("førsteGangsSjekk", 1);
     let checkboxes = document.querySelectorAll('input[name="kjonn"]');
     checkboxes.forEach((checkbox) => {
@@ -71,6 +70,7 @@ function gåVidere() {
     alert(valgteKjønn);
     
     localStorage.setItem("kjonnPreferanse", JSON.stringify(valgteKjønn));
+    document.location.href = "../brukerInteresser/intresser.html"
 }
 
 function gåTilbake() {
