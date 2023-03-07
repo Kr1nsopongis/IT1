@@ -107,6 +107,7 @@ let navn = "";
 let alder = 0;
 let imgSrc = "";
 let hei = "";
+let nasjonaliteten = "";
 
 
 //prossesserer informasjonen fra randomUserApi
@@ -116,6 +117,7 @@ function behandleSvar(svar) {
     navn = svar.results[0].name.first;
     alder = svar.results[0].dob.age;
     imgSrc = svar.results[0].picture.large;
+    nasjonaliteten = svar.results[0].nat;
     
     console.log(navn);
     console.log(alder);
@@ -123,6 +125,8 @@ function behandleSvar(svar) {
     
     document.getElementById("navn").innerText = navn + ", " + alder;
     document.getElementById("profilbilde").src = imgSrc;
+    console.log(nasjonaliteten);
+    document.getElementById("flagg").src = "../preferanser/flagg/" + nasjonaliteten +  "_flagg.png";
 }
 
 //Flere variabler og arrays for å lage bioer
@@ -172,10 +176,13 @@ function lageURL() {
     let nasjonaliteter = JSON.parse(localStorage.getItem('land'));
     console.log(nasjonaliteter);
     if (nasjonaliteter.length > 0) {
-        URL = URL + "&nat="
+        URL = URL + "nat="
     }
     for (let i = 0; i < nasjonaliteter.length; i++) {
-        URL = URL + nasjonaliteter[i] + ",";
+        URL = URL + nasjonaliteter[i];
+        if (i < (nasjonaliteter.length - 1)) {
+            URL = URL + ",";
+        }
     }
 
     let kjønn = JSON.parse(localStorage.getItem('kjonnPreferanse'));
@@ -184,7 +191,10 @@ function lageURL() {
         URL = URL + "&gender="
     }
     for (let i = 0; i < kjønn.length; i++) {
-        URL = URL + kjønn[i] + ","
+        URL = URL + kjønn[i]
+        if (i < (kjønn.length - 1)) {
+            URL = URL + ",";
+        }
     }
     console.log(URL);
 }
