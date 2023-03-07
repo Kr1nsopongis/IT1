@@ -165,10 +165,10 @@ bio = hei + intens() + arrArr() + intens() + arrArr() + intens();
 
 console.log(bio);
 
-let URL = "https://randomuser.me/api/?";
+// let URL = "https://randomuser.me/api/?";
 
 function lageURL() {
-    URL = "https://randomuser.me/api/?";
+    let URL = "https://randomuser.me/api/?";
     let nasjonaliteter = JSON.parse(localStorage.getItem('land'));
     console.log(nasjonaliteter);
     if (nasjonaliteter.length > 0) {
@@ -186,14 +186,14 @@ function lageURL() {
     for (let i = 0; i < kjønn.length; i++) {
         URL = URL + kjønn[i] + ","
     }
-    console.log(URL);
+    return URL;
 }
 
 //Denne funksjonen henter all informasjon vi trenger og putter det rett sted. Den starter også randomUserApi funksjonen
 function getInfo() {
-    lageURL()
-    console.log(URL);
-    fetch(URL)
+    let hentetURL = lageURL()
+    console.log(hentetURL);
+    fetch('https://randomuser.me/api/?nat=AU&gender=female')
         .then(response => response.json())
         .then(response => behandleSvar(response))
         .catch(err => console.error(err));
