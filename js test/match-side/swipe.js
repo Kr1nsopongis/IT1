@@ -98,6 +98,7 @@ if (spamCheck == 0) {
 }
 }
 
+//Trigger funskjonene moveElementLeft/Right
 document.getElementById("moveLeft").addEventListener("click", moveElementLeft)
 document.getElementById("moveRight").addEventListener("click", moveElementRight)
 
