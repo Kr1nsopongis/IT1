@@ -1,6 +1,19 @@
 let ugyldigAlder = document.getElementById("alderNei");
 let brukere = [];
+let førsteRegistrering = 0;
 
+if (localStorage.getItem("førsteRegistreringLagret") == 1) {
+    let brukerData = JSON.parse(localStorage.getItem("bruker"))
+    console.log(brukerData);
+    let splittetNavn = brukerData[0].navn.split(" ");
+    
+    document.getElementById("brukernavn").value = brukerData[0].brukernavn;
+    document.getElementById("passord").value = brukerData[0].passord;
+    document.getElementById("email").value = brukerData[0].email;
+    document.getElementById("fornavn").value = splittetNavn[0];
+    document.getElementById("etternavn").value = splittetNavn[1];
+    document.querySelector('input[value = ' + brukerData[0].kjonn + "]").checked = true;
+}
 
 document.getElementById("bruker").addEventListener("submit", function(evt) {
     evt.preventDefault();
@@ -8,6 +21,8 @@ document.getElementById("bruker").addEventListener("submit", function(evt) {
     let age = document.querySelector('input[name ="alder"]:checked').value;
    
     if (age === "alderJa"){
+        førsteRegistrering = 1;
+        localStorage.setItem("førsteRegistreringLagret", førsteRegistrering);
         let nyPersBrukernavn = document.getElementById("brukernavn").value;
         let nyPersPassord = document.getElementById("passord").value;
         let nyPersEmail = document.getElementById("email").value;
@@ -55,10 +70,10 @@ document.getElementById("bruker").addEventListener("submit", function(evt) {
 
 console.log(brukere)
 
-fetchfetch('https://randomuser.me/api/?results=' + antall + "&gender=" + kjonn + "&nat=" + nasjonalitet)
-      .then(response => response.json())
-      .then(response => behandleSvar(response))
-      .catch(err => console.error(err));
+//fetch('https://randomuser.me/api/?results=' + antall + "&gender=" + kjonn + "&nat=" + nasjonalitet)
+  //    .then(response => response.json())
+    //  .then(response => behandleSvar(response))
+      //.catch(err => console.error(err));
     
 
 
