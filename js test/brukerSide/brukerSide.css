@@ -1,0 +1,22 @@
+#hoved{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url("../brukerRegistrering/Bilder/BakgrunnBrukerReg.png");
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+#header{
+    width: 100%;
+    height: 150px;
+    background-color: #86242a;
+    display: grid;
+    grid-template-columns: 6;
+    grid-template-rows: 1;
+    grid-area: 
+    ". . l l . ."
+    ;
+}
