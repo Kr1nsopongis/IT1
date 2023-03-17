@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-image: url("../brukerRegistrering/Bilder/BakgrunnBrukerReg.png");
     background-size: 100%;
     width: 100%;
@@ -14,9 +15,18 @@
     height: 150px;
     background-color: #86242a;
     display: grid;
-    grid-template-columns: 6;
-    grid-template-rows: 1;
-    grid-area: 
-    ". . l l . ."
+    grid-template-columns:repeat(7,1fr);
+    grid-template-rows:repeat(1,fr);
+    grid-template-areas: 
+    ". . . l . . b"
     ;
 }
+
+#profilBilde{
+    background: url("https://lyko.com/globalassets/product-images/dick-johnson-magic-dust-10-portions-2608-115-0010_4.jpg?ref=1181169&w=960&h=960&mode=max&quality=75&format=webp") 50% 50% no-repeat;
+    width: 100px;
+    height: 100px;
+}
+
+.l{grid-area: l;}
+.b{grid-area: b;}
