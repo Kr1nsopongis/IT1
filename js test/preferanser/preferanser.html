@@ -8,7 +8,7 @@
     <script src="preferanser.js" defer></script>
     <link rel="stylesheet" href="preferanser.css">
 </head>
-<body>
+<body id="hoved">
     <div id="flaggContainer">
         <img id="flagg_AU" class="flagg" src="flagg/AU_flagg.png" alt="Flagget til Australia" title="Australia">
         <img id="flagg_BR" class="flagg" src="flagg/BR_flagg.png" alt="Flagget til Brasil" title="Brasil">
@@ -29,11 +29,14 @@
         <img id="flagg_UA" class="flagg" src="flagg/UA_flagg.png" alt="Flagget til Ukraina" title="Ukraina">
         <img id="flagg_US" class="flagg" src="flagg/US_flagg.png" alt="Flagget til USA" title="USA">
     </div>
-    <div>
+    <div id="knapper">
         <label for="check1"><input type="checkbox" name="kjonn" value="female" id="checkkvinner">Kvinner</label>
         <label for="check2"><input type="checkbox" name="kjonn" value="male" id="checkmenn">Menn</label>
     </div>
-    <button id="gåVidere">Gå videre</button>
-    <button id="gåTilbake">Gå tilbake</button>
+    <div id="knapper">
+        <button id="gåTilbake">Gå tilbake</button><br>
+        <button id="gåVidere">Gå videre</button>
+    </div>
+   
 </body>
 </html>

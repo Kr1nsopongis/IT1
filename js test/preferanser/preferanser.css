@@ -1,3 +1,13 @@
+#hoved{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+
+
+
+
 .flagg {
     opacity: 0.34;
     height: 10%;
@@ -13,3 +23,19 @@
     width: 500px;
 }
 
+#knapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#gåTilbake,#gåVidere{
+    border: grey 5px;
+    background: #f2f2f2;
+    padding: 12px;
+    margin: 12px;
+    border-radius: 3px;
+    width: 200px;
+    font-size: 14px;
+    align-self: center;
+}
