@@ -28,5 +28,17 @@
     height: 100px;
 }
 
+#container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+}
+
+#kjonn{
+    display: flex;
+    flex-direction: row;
+}
+
 .l{grid-area: l;}
 .b{grid-area: b;}
