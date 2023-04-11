@@ -1,3 +1,6 @@
+
+
+
 let ugyldigAlder = document.getElementById("alderNei");
 let brukere = [];
 let førsteRegistrering = 0;
@@ -28,6 +31,19 @@ document.getElementById("bruker").addEventListener("submit", function(evt) {
         let nyPersEmail = document.getElementById("email").value;
         let nyttNavn = document.getElementById("fornavn").value + " " + document.getElementById("etternavn").value;
         let nyPersKjonn = document.querySelector('input[name ="kjonn"]:checked').value;
+        
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        // ...
+        })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
     
 
         let nyPerson = {
