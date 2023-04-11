@@ -17,3 +17,9 @@ document.getElementById("etternavn").value = splittetNavn[1];
 document.querySelector('input[value = ' + brukerData[0].kjonn + "]").checked = true;
 
 console.log(splittetNavn)
+
+function tilbakeTilStart(){
+    document.location.href = "../match-side/match.html"
+}
+
+document.getElementById("logo").addEventListener('click', tilbakeTilStart)
