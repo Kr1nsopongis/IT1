@@ -1,9 +1,12 @@
+
+
+
 let ugyldigAlder = document.getElementById("alderNei");
 let brukere = [];
 let førsteRegistrering = 0;
 
 if (localStorage.getItem("førsteRegistreringLagret") == 1) {
-    let brukerData = JSON.parse(localStorage.getItem("bruker"))
+    let brukerData = JSON.parse(localStorage.getItem(sessionStorage.getItem("brukernavn")))
     console.log(brukerData);
     let splittetNavn = brukerData[0].navn.split(" ");
     
@@ -28,6 +31,19 @@ document.getElementById("bruker").addEventListener("submit", function(evt) {
         let nyPersEmail = document.getElementById("email").value;
         let nyttNavn = document.getElementById("fornavn").value + " " + document.getElementById("etternavn").value;
         let nyPersKjonn = document.querySelector('input[name ="kjonn"]:checked').value;
+        
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        // ...
+        })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
     
 
         let nyPerson = {
@@ -52,8 +68,10 @@ document.getElementById("bruker").addEventListener("submit", function(evt) {
         document.body.appendChild(nesteSide);
 
         document.getElementById("nesteSide").addEventListener("click", function(){
-
-            localStorage.setItem("bruker", JSON.stringify(brukere));
+            
+            localStorage.setItem(brukere[0].brukernavn, JSON.stringify(brukere));
+            sessionStorage.setItem("brukernavn", brukere[0].brukernavn);
+            sessionStorage
             document.location.href = "../preferanser/preferanser.html"
         });
     }
