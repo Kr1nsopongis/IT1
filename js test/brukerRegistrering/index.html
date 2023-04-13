@@ -82,6 +82,7 @@
             const user = userCredential.user;
             brukerID = userCredential.user.uid;
             console.log(brukerID);
+            localStorage.setItem("brukerID", brukerID);
             // ...
             brukerOppretting()
             
