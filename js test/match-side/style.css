@@ -65,3 +65,23 @@ opacity: 1;
   height: 20px;
   width: 30px;
 }
+
+@media screen and (max-width: 992px) {
+  #div{
+    width: 100%;
+    height: 100%;
+    align-self: center;
+    top: 0px;
+    left: 0px;
+    right: 0px; 
+  }
+
+  #header{
+    display: none;
+  }
+
+  #profilbilde{
+    width: 420px;
+    align-self: center;
+  }
+}

@@ -79,3 +79,13 @@ div {
     color: white;       
 }
 
+/* mobilversjon */
+
+@media screen and (max-width: 992px) {
+    #bruker >* {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 250px; 
+}
+}

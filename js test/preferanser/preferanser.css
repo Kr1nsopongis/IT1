@@ -13,7 +13,7 @@
 .flagg {
     opacity: 0.34;
     height: 150px;
-    width: 20px;
+    width: 200px;
 }
 
 .flagg.click {
@@ -40,4 +40,12 @@
     width: 200px;
     font-size: 14px;
     align-self: center;
+}
+
+@media screen and (max-width: 992px) {
+    .flagg {
+        opacity: 0.34;
+        height: 105px;
+        width: 140px;
+    }
 }
