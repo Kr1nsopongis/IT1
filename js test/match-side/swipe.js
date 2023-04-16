@@ -72,7 +72,9 @@ if (spamCheck == 0) { //Spamcheck er for å hindre at man kan spamme knappene og
         getInfo()
     }, 300 );
     setTimeout(() => { 
-        div.style.top = '200px';
+        if(document.body.clientWidth >= 992) {
+            div.style.top = '200px';
+        }
         div.classList.toggle('fade');
         spamCheck = 0;
     }, 600 );
@@ -91,7 +93,9 @@ if (spamCheck == 0) {
         getInfo()
     }, 300 );
     setTimeout(() => { 
-        div.style.top = '200px';
+        if(document.body.clientWidth >= 992) {
+            div.style.top = '200px';
+        }
         div.classList.toggle('fade');
         spamCheck = 0;
     }, 600 );
