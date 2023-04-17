@@ -75,6 +75,10 @@ opacity: 1;
     left: 0px;
     right: 0px; 
     border-radius: 0px;
+    padding: 0px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
   }
   
   #hoved{
@@ -88,5 +92,6 @@ opacity: 1;
   #profilbilde{
     width: 420px;
     align-self: center;
+    border-radius: 0px;
   }
 }
