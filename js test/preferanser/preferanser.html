@@ -45,7 +45,7 @@
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
     import { getFirestore } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
-    import { collection, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+    import { collection, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
     
     const firebaseConfig = {
         apiKey: "",
@@ -72,6 +72,25 @@
         }
     }
 
+    const docRef = doc(db, "test", brukerID);
+    const docSnap = await getDoc(docRef);
+
+    let valgteLand = [];
+    let valgteKjønn = [];
+
+    if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        let brukerData = docSnap.data();
+        console.log(brukerData);
+        valgteLand = brukerData.nasjonalitetPreferanse;
+        valgteKjønn = brukerData.kjonnPreferanse;
+    } else {
+    // docSnap.data() will be undefined in this case
+        console.log("No such document!");
+    }
+
+    oppdaterPreferanser()
+
     document.getElementById("flagg_ES").addEventListener("click", (event) => {click('ES')});
     document.getElementById("flagg_AU").addEventListener("click", (event) => {click('AU')});
     document.getElementById("flagg_BR").addEventListener("click", (event) => {click('BR')});
@@ -96,20 +115,14 @@
 
 
 
-    let valgteLand = [];
-    let valgteKjønn = [];
 
-    if (localStorage.getItem('førsteGangsSjekk') > 0) {
-        valgteLand = JSON.parse(localStorage.getItem('land'));
-        valgteKjønn = JSON.parse(localStorage.getItem('kjonnPreferanse'))
-    }
 
     for(let i = 0; i < valgteLand.length; i++) {
-        document.getElementById("flagg_" + valgteLand[i]).classList.toggle('click');
+         document.getElementById("flagg_" + valgteLand[i]).classList.toggle('click');
     }
 
     for(let i = 0; i < valgteKjønn.length; i++) {
-        document.getElementById("check" + valgteKjønn[i]).checked = true;
+         document.getElementById("check" + valgteKjønn[i]).checked = true;
     }
 
     function click(country) {

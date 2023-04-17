@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="intresser.js" defer></script>
+    <!-- <script src="intresser.js" defer></script> -->
     <link rel="stylesheet" href="stilark.css">
 </head>
 <body id="hoved">
@@ -26,5 +26,133 @@
             <button id="gåTilbake">Gå tilbake</button>
             <button id="gåVidere">Gå videre</button>
     </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+        import { collection, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+        
+        const firebaseConfig = {
+            apiKey: "",
+            authDomain: "datingside-98657.firebaseapp.com",
+            projectId: "datingside-98657",
+            storageBucket: "datingside-98657.appspot.com",
+            messagingSenderId: "323999360874",
+            appId: "1:323999360874:web:fc7215729fdc361a98e713"
+        };
+
+        let brukerID = localStorage.getItem("brukerID");
+
+        export const app = initializeApp(firebaseConfig);
+        export const db = getFirestore(app);
+
+        async function oppdaterInteresser() {
+            try {
+                const docRef = await updateDoc(doc(db, "test", brukerID), {
+                    interesser: lagring
+                });
+            } catch (e) {
+                console.error("Error adding document: ", e);
+            }
+        }   
+
+        let x = "";
+        let item = "";
+        let inputFelt = document.getElementById("inputInteresse");
+        let liste = document.getElementById("interesser");
+        let lagring = [];
+        let baklengs = [];
+
+        // if (localStorage.getItem('førsteGangsSjekk') > 1) {
+        //     lagring = JSON.parse(localStorage.getItem('interesser'));
+        //     lagring.reverse();
+        // }
+        //let lagring = [];
+
+        const docRef = doc(db, "test", brukerID);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            console.log("Document data:", docSnap.data());
+            let brukerData = docSnap.data();
+            console.log(brukerData);
+            lagring = brukerData.interesser;
+        } else {
+        // docSnap.data() will be undefined in this case
+            console.log("No such document!");
+        }
+
+        for(let i = 0; i < lagring.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute('id', lagring[i]);
+            li.appendChild(document.createTextNode(lagring[i]));
+            liste.appendChild(li);
+        }
+
+        document.getElementById("leggTil").addEventListener("click", addInteresse);
+        document.getElementById("fjern").addEventListener("click", fjernInteresse);
+        document.getElementById("gåVidere").addEventListener("click", gåVidere);
+        document.getElementById("gåTilbake").addEventListener("click", gåTilbake);
+
+        //Sjekker etter tastaturtrykk
+        document.onkeydown = function (e) {
+            if (e.key == "Enter") {
+                addInteresse();
+            }
+            if (e.key == "Delete") {
+                fjernInteresse();
+            }
+        }
+
+        //Legger til en interesse
+        function addInteresse() {
+            x = inputFelt.value;
+            if ( x === "") {
+                console.log("LEGG TIL INTERESSE")
+            } else {
+                var li = document.createElement("li");
+                li.setAttribute('id', inputFelt.value);
+                li.appendChild(document.createTextNode(inputFelt.value));
+                liste.appendChild(li);
+                lagring.unshift(x);
+            }
+            inputFelt.value = "";
+            inputFelt.focus();
+        }
+
+        function fjernInteresse() {
+            x = inputFelt.value;
+
+            if ( x === "") {
+                item = document.getElementById(lagring[0]);
+                liste.removeChild(item)
+                console.log(lagring);
+                var index = lagring.indexOf(item);
+                lagring.splice(index, 1);
+                inputFelt.focus();
+            }
+            else {
+                item = document.getElementById(inputFelt.value);
+                liste.removeChild(item);
+                var index = lagring.indexOf(item);
+                lagring.splice(index, 1);
+                inputFelt.value = "";    
+            } 
+        }
+
+
+
+        function gåVidere() {
+            // localStorage.setItem("interesser", JSON.stringify(lagring));
+            // localStorage.setItem("førsteGangsSjekk", 2);
+            
+            oppdaterInteresser()
+
+            // document.location.href = "../match-side/match.html"
+        }
+
+        function gåTilbake() {
+            document.location.href = "../preferanser/preferanser.html"
+        }
+    </script>
 </body>
 </html>
