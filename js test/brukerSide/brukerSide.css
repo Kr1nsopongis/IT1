@@ -23,7 +23,6 @@
 }
 
 #profilBilde{
-    background: url("https://lyko.com/globalassets/product-images/dick-johnson-magic-dust-10-portions-2608-115-0010_4.jpg?ref=1181169&w=960&h=960&mode=max&quality=75&format=webp") 50% 50% no-repeat;
     width: 100px;
     height: 100px;
 }
@@ -55,6 +54,8 @@
     flex-direction: column;
     flex-wrap: wrap;
 }
-.video{
+.video,.canvas,.bilde{
     height: 100px;
+    width: 150px;
 }
+

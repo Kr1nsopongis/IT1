@@ -26,7 +26,7 @@ navigator.mediaDevices
       "canplay",
       (ev) => {
         if (!streaming) {
-          height = video.videoHeight / (video.videoWidth / width);
+        //   height = video.videoHeight / (video.videoWidth / width);
 
           if (isNaN(height)) {
             height = width / (4 / 3);
@@ -76,12 +76,23 @@ navigator.mediaDevices
         bilde.setAttribute("src", data);
       }
 
-document.getElementById("startKnapp").addEventListener("click", submit);
+      imgData = getBase64Image(canvas);
+      localStorage.setItem("imgData", imgData);
 
-function submit() {
-    let profilBilde = data
-    document.getElementById("profilBilde").style.background = "url(" + URL.createObjectURL(profilBilde) + ")";
-}
+      function getBase64Image(img) {
+        var canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+    
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+    
+        var dataURL = canvas.toDataURL("image/png");
+    
+        return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+    }
+
+    document.getElementById("profilBilde")
 
 let brukerData = JSON.parse(localStorage.getItem("bruker"))
 console.log(brukerData);
