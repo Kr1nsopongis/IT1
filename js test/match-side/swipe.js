@@ -9,6 +9,9 @@ let spamCheck = 0;
 //Definerer div-element for mer tydelig kode lengre nede
 const div = document.getElementById('div');
 
+if (document.body.clientWidth > 992) {
+
+
 //Sjekker når mus blir trykket og logger x-kordinaten i variabelen startx
 window.addEventListener('mousedown', (e) => {
     startx = e.offsetX;
@@ -72,13 +75,12 @@ if (spamCheck == 0) { //Spamcheck er for å hindre at man kan spamme knappene og
         getInfo()
     }, 300 );
     setTimeout(() => { 
-        if(document.body.clientWidth >= 992) {
-            div.style.top = '200px';
-        } else {
+        
+        
             div.style.top = '0px'
             div.style.left = '0px'
             div.style.right = '0px'
-        }
+        
         
         div.classList.toggle('fade');
         spamCheck = 0;
@@ -114,6 +116,69 @@ if (spamCheck == 0) {
 //Trigger funskjonene moveElementLeft/Right
 document.getElementById("moveLeft").addEventListener("click", moveElementLeft)
 document.getElementById("moveRight").addEventListener("click", moveElementRight)
+
+} else {
+    document.addEventListener('touchstart', (e) => {
+        startx = e.changedTouches[0].screenX;
+    });
+    
+    //Sjekker når mus blir sluppet igjen og logger x-kordinaten i variabelen endx
+    window.addEventListener('touchend', (e) => {
+        endx = e.changedTouches[0].screenX;
+    
+        if (endx < startx) { //Hvis det er over en viss mengde kjører funksjonen moveElementLeft()
+            moveElementLeft()
+        }
+        if (endx > startx) { //Samme for motsatt retning
+            moveElementRight()
+        }
+    
+        console.log(startx);
+        console.log(endx);
+    });
+    
+    
+    //Funksjonen endrer posisjon til div, og triggerer animasjon i style.css
+    function moveElementLeft() {
+        div.style.left = "-200px";
+         div.classList.toggle('fade');
+        setTimeout(() => { 
+            div.style.left = "0px";
+            getInfo()
+        }, 300 );
+        setTimeout(() => { 
+            // if(document.body.clientWidth >= 992) {
+            //     div.style.top = '200px';
+            // } else {
+            //     div.style.top = '0px'
+            //     div.style.left = '0px'
+            //     div.style.right = '0px'
+            // }
+            
+             div.classList.toggle('fade');
+        }, 600 );
+    }
+    
+    //Samme for motsatt retning
+    function moveElementRight() {   
+        div.style.left = "200px";
+         div.classList.toggle('fade');
+        setTimeout(() => { 
+            div.style.left = "0px";
+            getInfo()
+        }, 300 );
+        setTimeout(() => { 
+            // if(document.body.clientWidth >= 992) {
+            //     div.style.top = '200px';
+            // } else {
+            //     div.style.top = '0px'
+            //     div.style.left = '0px'
+            //     div.style.right = '0px'
+            // }
+             div.classList.toggle('fade');
+        }, 600 );
+    }
+    }
 
 //Definerer et par variabler som er nødvendig til bio-genereringen
 let navn = "";
