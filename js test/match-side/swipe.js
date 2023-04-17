@@ -77,11 +77,13 @@ if (spamCheck == 0) { //Spamcheck er for å hindre at man kan spamme knappene og
     setTimeout(() => { 
         
         
+        if(document.body.clientWidth >= 992) {
+            div.style.top = '200px';
+        } else {
             div.style.top = '0px'
             div.style.left = '0px'
             div.style.right = '0px'
-        
-        
+        }
         div.classList.toggle('fade');
         spamCheck = 0;
     }, 600 );
