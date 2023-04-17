@@ -26,6 +26,9 @@
             <button id="gåTilbake">Gå tilbake</button>
             <button id="gåVidere">Gå videre</button>
     </div>
+    <div class="OverLay" id="overlay">
+        <img src="bilder/lastegif.gif" alt="" id="laste">
+    </div>
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
         import { getFirestore } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
@@ -146,8 +149,12 @@
             // localStorage.setItem("førsteGangsSjekk", 2);
             
             oppdaterInteresser()
-
-            // document.location.href = "../match-side/match.html"
+            document.getElementById("laste").style.display = "block";
+            document.getElementById("overlay").style.display = "inline";
+            setTimeout(() => {
+                document.location.href = "../match-side/match.html"
+            }, "1000");
+            // 
         }
 
         function gåTilbake() {
