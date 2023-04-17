@@ -183,6 +183,20 @@ document.getElementById("moveRight").addEventListener("click", moveElementRight)
     }
 
 //Definerer et par variabler som er nødvendig til bio-genereringen
+
+document.getElementById("startKnapp").addEventListener("click", startSwiping)
+
+function startSwiping() {
+    getInfo()
+    document.getElementById("laste").style.display = "block";
+    document.getElementById("startKnapp").style.display = "none";
+    setTimeout(() => {
+        document.getElementById("laste").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("div").style.display = "flex";
+    }, "500");
+}
+
 let navn = "";
 let alder = 0;
 let imgSrc = "";
@@ -253,7 +267,7 @@ let URL = "https://randomuser.me/api/?";
 
 function lageURL() {
     URL = "https://randomuser.me/api/?";
-    let nasjonaliteter = JSON.parse(localStorage.getItem('land'));
+    let nasjonaliteter = JSON.parse(localStorage.getItem('nasjonaliteter'));
     console.log(nasjonaliteter);
     if (nasjonaliteter.length > 0) {
         URL = URL + "nat="
@@ -265,7 +279,7 @@ function lageURL() {
         }
     }
 
-    let kjønn = JSON.parse(localStorage.getItem('kjonnPreferanse'));
+    let kjønn = JSON.parse(localStorage.getItem('kjonner'));
     console.log(kjønn);
     if (kjønn.length > 0) {
         URL = URL + "&gender="
@@ -293,4 +307,3 @@ function getInfo() {
     document.getElementById("bio").innerText = bio;
 }
 
-getInfo()

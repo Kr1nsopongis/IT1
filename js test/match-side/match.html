@@ -26,6 +26,49 @@
             <img src="bilder/hjerte.png" alt="" id="moveRight">
         </div>
     </div>
-    
+    <div class="OverLay" id="overlay">
+        <img src="bilder/lastegif.gif" alt="" id="laste">
+        <button type="button" id="startKnapp">Start swipingen!</button>
+    </div>
 </body>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+    import { collection, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCoRH-HJRelRMyBqOr0NCE-Fx7sdUbjQsY",
+        authDomain: "datingside-98657.firebaseapp.com",
+        projectId: "datingside-98657",
+        storageBucket: "datingside-98657.appspot.com",
+        messagingSenderId: "323999360874",
+        appId: "1:323999360874:web:fc7215729fdc361a98e713"
+    };
+    
+    let brukerID = localStorage.getItem("brukerID");
+
+    export const app = initializeApp(firebaseConfig);
+    export const db = getFirestore(app);
+
+    const docRef = doc(db, "test", brukerID);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        let brukerData = docSnap.data();
+        console.log(brukerData);
+        localStorage.setItem("interesser", JSON.stringify(brukerData.interesser));
+        localStorage.setItem("nasjonaliteter", JSON.stringify(brukerData.nasjonalitetPreferanse));
+        localStorage.setItem("kjonner", JSON.stringify(brukerData.kjonnPreferanse));
+    } else {
+    // docSnap.data() will be undefined in this case
+        console.log("No such document!");
+    }
+
+    document.getElementById("startKnapp").addEventListener("click", startSwiping)
+
+    function startSwiping() {
+        
+    }
+</script>
 </html>

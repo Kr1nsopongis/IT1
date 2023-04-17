@@ -143,7 +143,6 @@
         document.getElementById("overlay").style.display = "inline";
         
         localStorage.setItem("land", JSON.stringify(valgteLand));
-        localStorage.setItem("førsteGangsSjekk", 1);
         let checkboxes = document.querySelectorAll('input[name="kjonn"]');
         checkboxes.forEach((checkbox) => {
             if (checkbox.checked === true) {
