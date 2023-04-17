@@ -49,3 +49,12 @@
         background-color: #86242a;
     }
 }
+
+.kamera{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.video{
+    height: 100px;
+}

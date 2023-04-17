@@ -13,17 +13,22 @@
         <img src="../brukerRegistrering/Bilder/Logo.png" alt="" class="l" id="logo">
         <div id="profilBilde" class="b"></div>
     </header>
-    <label for="profilBildeUpload">Last opp ett profilbilde:</label>
+    <!-- <label for="profilBildeUpload">Last opp ett profilbilde:</label>
     <input type="file" id="profilBildeUpload" name="profilBildeUpload" accept="image/png, image/jpeg">
-    <button id="submit">Lagre</button>
+    <button id="submit">Lagre</button> -->
+
+    <div class="kamera">
+        <video id="video">Video er utilgjengelig</video>
+        <button id="startKnapp"> Ta dagens bilde!</button>
+    </div>
+    <canvas id="canvas"> </canvas>    
 
     <div id="container">
         <p>Her kan du endre informasjonen om deg</p>
         <input type="text" class="inputFelt" id="brukernavn"><label for="brukernavn">Brukernavn</label> 
-        <input type="text" class="inputFelt" id="passord"><label for="passord">passord</label> 
-        <input type="text" class="inputFelt" id="email"><label for="email">email</label> 
-        <input type="text" class="inputFelt" id="fornavn"><label for="fornavn">fornavn</label> 
-        <input type="text" class="inputFelt" id="etternavn"><label for="etternavn">etternavn</label> 
+        <input type="text" class="inputFelt" id="email"><label for="email">Email</label> 
+        <input type="text" class="inputFelt" id="fornavn"><label for="fornavn">Fornavn</label> 
+        <input type="text" class="inputFelt" id="etternavn"><label for="etternavn">Etternavn</label> 
 
         <div id="kjonn">
             <input type="radio" class="Mann" name="kjonn" id="brukerKjonn" value="Mann">Herre<br>
