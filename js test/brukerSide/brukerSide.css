@@ -42,3 +42,10 @@
 
 .l{grid-area: l;}
 .b{grid-area: b;}
+
+@media screen and (max-width: 1440px){
+    #hoved{
+        background-image: none;
+        background-color: #86242a;
+    }
+}

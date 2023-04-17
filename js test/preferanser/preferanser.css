@@ -53,6 +53,10 @@
     .flagg {
         opacity: 0.34;
         height: 105px;
-        width: 140px;
+        width: 130px;
     }
+}
+
+@media screen and (max-width: 992px){
+    
 }
