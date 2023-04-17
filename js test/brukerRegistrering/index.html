@@ -100,16 +100,19 @@
             let nyPersEmail = document.getElementById("email").value;
             let nyttNavn = document.getElementById("fornavn").value + " " + document.getElementById("etternavn").value;
             let nyPersKjonn = document.querySelector('input[name ="kjonn"]:checked').value;
-            
+            let interesser = [];
+            let kjonnPreferanse = [];
+            let nasjonalitetPreferanse = [];
+
             console.log(brukerID);
             const docRef = await setDoc(doc(db, "test", brukerID), {
                 email: nyPersEmail,
                 brukernavn: nyPersBrukernavn,
                 navn: nyttNavn,
                 kjonn: nyPersKjonn,
-                interesser: "none",
-                nasjonalitetPreferanse: "none",
-                kjonnPreferanse: "none"
+                interesser: interesser,
+                nasjonalitetPreferanse: nasjonalitetPreferanse,
+                kjonnPreferanse: kjonnPreferanse
             });
             console.log("Document written with ID: ", docRef.id);
         }   catch (e) {
