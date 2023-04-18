@@ -24,7 +24,7 @@
 
         
     </form>
-    
+    <a href="../brukerRegistrering/registrering.html" id="logIn">Registrer deg</a>
     <p id="registrert"></p>
 </body>
 <script type="module">
@@ -59,10 +59,6 @@
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            // brukerID = userCredential.user.uid;
-            // console.log(brukerID);
-            //sessionStorage.setItem("brukerID", brukerID);
-            // ...
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -71,25 +67,6 @@
         });
 });
     document.getElementById("logg-ut").addEventListener("click", loggUt)
-    async function trykketPåKnappenIG() {
-        let email = document.getElementById("email").value;
-        let password = document.getElementById("passord").value;
-        const response = await signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            brukerID = userCredential.user.uid;
-            console.log(brukerID);
-            localStorage.setItem("brukerID", brukerID);
-            // ...
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // ..
-        });
-        
-    }
     function loggUt() {
         signOut(auth).then(() => {
   // Sign-out successful.
