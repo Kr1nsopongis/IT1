@@ -1,7 +1,7 @@
 html, body {
     margin:0;
     padding:0;
-    background-color: #86242a;
+    background-color: #fff1c1;
 }
     
   
@@ -62,7 +62,7 @@ html, body {
     top: 40%;
     width: 100%;
     text-align: center;
-    color: #86242a;
+    color: #fff1c1;
     border: #000 2px;
 }
 
@@ -73,7 +73,7 @@ html, body {
 }
 
 .caption span.border {
-    background-color: #86242a;
+    background-color: #ffd974;
     color: #000;
     padding: 18px;
     font-size: 25px;
@@ -101,7 +101,7 @@ html, body {
 #header{
     width: 100%;
     height: 150px;
-    background-color: #86242a;
+    background-color: #761f18;
     display: grid;
     grid-template-columns: 6;
     grid-template-rows: 1;
