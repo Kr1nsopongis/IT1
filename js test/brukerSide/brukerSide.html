@@ -24,19 +24,20 @@
     <canvas id="canvas"> </canvas>    
 
     <div id="container">
-        <p>Her kan du endre informasjonen om deg</p>
+        <h3>Her kan du endre informasjonen om deg</h3>
         <label for="brukernavn">Brukernavn</label> 
-        <input type="text" class="inputFelt" id="brukernavn">
+        <input type="text" class="inputFelt" id="brukernavn" >
         <label for="email">Email</label> 
-        <input type="text" class="inputFelt" id="email">
+        <input type="text" class="inputFelt" id="email" >
         <label for="fornavn">Fornavn</label> 
-        <input type="text" class="inputFelt" id="fornavn">
+        <input type="text" class="inputFelt" id="fornavn" >
         <label for="etternavn">Etternavn</label> 
-        <input type="text" class="inputFelt" id="etternavn">
+        <input type="text" class="inputFelt" id="etternavn" >
         <div id="kjonn">
-            <input type="radio" class="Mann" name="kjonn" id="brukerKjonn" value="Mann">Herre<br>
+        <input type="radio" class="Mann" name="kjonn" id="brukerKjonn" value="Mann">Herre<br>
         <input type="radio" class="Kvinne" name="kjonn" id="brukerKjonn" value="Kvinne">Kvinne<br>
         <input type="radio" class="Annet" name="kjonn" id="brukerKjonn" value="Annet">Annet<br>   
+        <button>Lagre</button>
         </div>
     </div>
     
@@ -60,25 +61,9 @@
         export const app = initializeApp(firebaseConfig);
         export const db = getFirestore(app);
 
-        async function oppdaterBruker() {
-            try {
-                const docRef = await updateDoc(doc(db, "test", brukerID), {
-                    brukernavn: nyttBrukerNavn,
-                    email: nyEmail,
-                    navn: nyttNavn,
-                    kjonn: nyttKjonn
-                
-                })
-            }
-            catch (e){
-                console.error("Error adding document: ", e)
-            }
-        }
-
         const docRef = doc(db, "test", brukerID);
         const docSnap = await getDoc(docRef);
 
-        
         if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());
         let brukerData = docSnap.data();
@@ -94,6 +79,36 @@
         console.log("No such document!");
     }
 
+        async function oppdaterBruker() {
+            console.log(brukerID)
+            let nyttBrukerNavn = document.getElementById("brukernavn").value
+            let nyEmail = document.getElementById("email").value
+            let nyttNavn = document.getElementById("fornavn").value + " " + document.getElementById("etternavn").value
+            let nyttKjonn = document.querySelector('input[name ="kjonn"]:checked').value;
+
+            try {
+                const docRef = await updateDoc(doc(db, "test", brukerID), {
+                    brukernavn: nyttBrukerNavn,
+                    email: nyEmail,
+                    navn: nyttNavn,
+                    kjonn: nyttKjonn
+                
+                })
+            }
+            catch (e){
+                console.error("Error adding document: ", e)
+            }
+        }
+
+       
+
+        
+        
+
+    document.getElementById("brukernavn").addEventListener('change', oppdaterBruker)
+    document.getElementById("email").addEventListener('change', oppdaterBruker)
+    document.getElementById("fornavn").addEventListener('change', oppdaterBruker)
+    document.getElementById("etternavn").addEventListener('change', oppdaterBruker)
 
 </script>
 </html>
