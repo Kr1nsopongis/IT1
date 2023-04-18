@@ -107,7 +107,7 @@ let splittetNavn = brukerData[0].navn.split(" ");
 console.log(splittetNavn)
 
 function tilbakeTilStart(){
-    document.location.href = "../startSide/start.html"
+    document.location.href = "../startSide/index.html"
 }
 
 document.getElementById("logo").addEventListener('click', tilbakeTilStart)
