@@ -25,11 +25,14 @@
 
     <div id="container">
         <p>Her kan du endre informasjonen om deg</p>
-        <input type="text" class="inputFelt" id="brukernavn"><label for="brukernavn">Brukernavn</label> 
-        <input type="text" class="inputFelt" id="email"><label for="email">Email</label> 
-        <input type="text" class="inputFelt" id="fornavn"><label for="fornavn">Fornavn</label> 
-        <input type="text" class="inputFelt" id="etternavn"><label for="etternavn">Etternavn</label> 
-
+        <label for="brukernavn">Brukernavn</label> 
+        <input type="text" class="inputFelt" id="brukernavn">
+        <label for="email">Email</label> 
+        <input type="text" class="inputFelt" id="email">
+        <label for="fornavn">Fornavn</label> 
+        <input type="text" class="inputFelt" id="fornavn">
+        <label for="etternavn">Etternavn</label> 
+        <input type="text" class="inputFelt" id="etternavn">
         <div id="kjonn">
             <input type="radio" class="Mann" name="kjonn" id="brukerKjonn" value="Mann">Herre<br>
         <input type="radio" class="Kvinne" name="kjonn" id="brukerKjonn" value="Kvinne">Kvinne<br>
@@ -38,4 +41,59 @@
     </div>
     
 </body>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+    import { collection, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+        
+     const firebaseConfig = {
+        apiKey: "AIzaSyCoRH-HJRelRMyBqOr0NCE-Fx7sdUbjQsY",
+        authDomain: "datingside-98657.firebaseapp.com",
+        projectId: "datingside-98657",
+        storageBucket: "datingside-98657.appspot.com",
+        messagingSenderId: "323999360874",
+        appId: "1:323999360874:web:fc7215729fdc361a98e713"
+        };
+
+        let brukerID = localStorage.getItem("brukerID");
+
+        export const app = initializeApp(firebaseConfig);
+        export const db = getFirestore(app);
+
+        async function oppdaterBruker() {
+            try {
+                const docRef = await updateDoc(doc(db, "test", brukerID), {
+                    brukernavn: nyttBrukerNavn,
+                    email: nyEmail,
+                    navn: nyttNavn,
+                    kjonn: nyttKjonn
+                
+                })
+            }
+            catch (e){
+                console.error("Error adding document: ", e)
+            }
+        }
+
+        const docRef = doc(db, "test", brukerID);
+        const docSnap = await getDoc(docRef);
+
+        
+        if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        let brukerData = docSnap.data();
+        let splittetNavn = brukerData.navn.split(" ");
+        console.log(brukerData);
+        document.getElementById("brukernavn").value = brukerData.brukernavn;
+        document.getElementById("email").value = brukerData.email
+        document.getElementById("fornavn").value = splittetNavn[0]
+        document.getElementById("etternavn").value = splittetNavn[1]
+        document.querySelector('input[value = ' + brukerData.kjonn + "]").checked = true;
+    } else {
+    // docSnap.data() will be undefined in this case
+        console.log("No such document!");
+    }
+
+
+</script>
 </html>

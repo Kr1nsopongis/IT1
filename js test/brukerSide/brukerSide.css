@@ -13,7 +13,7 @@
 #header{
     width: 100%;
     height: 150px;
-    background-color: #86242a;
+    background-color: #761F18;
     display: grid;
     grid-template-columns:repeat(7,1fr);
     grid-template-rows:repeat(1,fr);
@@ -45,7 +45,7 @@
 @media screen and (max-width: 1440px){
     #hoved{
         background-image: none;
-        background-color: #86242a;
+        background-color: #FFF1C1;
     }
 }
 
@@ -54,8 +54,8 @@
     flex-direction: column;
     flex-wrap: wrap;
 }
-.video,.canvas,.bilde{
-    height: 100px;
-    width: 150px;
-}
 
+
+#startKnapp,#brukernavn,"{
+    background-color: #FAAC18;
+}

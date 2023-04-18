@@ -1,4 +1,4 @@
-const width = 150;
+const width = 100;
 const height = 100;
 
 let streaming = false;
@@ -98,16 +98,16 @@ let brukerData = JSON.parse(localStorage.getItem("bruker"))
 console.log(brukerData);
 let splittetNavn = brukerData[0].navn.split(" ");
 
-document.getElementById("brukernavn").value = brukerData[0].brukernavn;
-document.getElementById("email").value = brukerData[0].email;
-document.getElementById("fornavn").value = splittetNavn[0];
-document.getElementById("etternavn").value = splittetNavn[1];
-document.querySelector('input[value = ' + brukerData[0].kjonn + "]").checked = true;
+// document.getElementById("brukernavn").value = brukerData[0].brukernavn;
+// document.getElementById("email").value = brukerData[0].email;
+// document.getElementById("fornavn").value = splittetNavn[0];
+// document.getElementById("etternavn").value = splittetNavn[1];
+// document.querySelector('input[value = ' + brukerData[0].kjonn + "]").checked = true;
 
 console.log(splittetNavn)
 
 function tilbakeTilStart(){
-    document.location.href = "../match-side/match.html"
+    document.location.href = "../startSide/start.html"
 }
 
 document.getElementById("logo").addEventListener('click', tilbakeTilStart)

@@ -77,4 +77,9 @@ console.log(brukere)
     
 
 
-
+      function tilbakeTilStart(){
+        document.location.href = "../startSide/start.html"
+    }
+    
+    document.getElementById("logo").addEventListener('click', tilbakeTilStart)
+    
