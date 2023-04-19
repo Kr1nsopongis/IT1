@@ -118,6 +118,12 @@ function tilInteresser(){
   document.location.href = "../brukerInteresser/intresser.html"
 }
 
+function tilSwipe(){
+  document.location.href = "../match-side/match.html"
+}
+
+
+document.getElementById("tilMatch").addEventListener('click', tilSwipe)
 document.getElementById("tilPreferanser").addEventListener('click', tilPreferanser)
 document.getElementById("logo").addEventListener('click', tilbakeTilStart)
 document.getElementById("tilInteresser").addEventListener('click', tilInteresser)

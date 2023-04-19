@@ -33,12 +33,19 @@ overflow: hidden;
     margin: auto;
 }
 
+.l{grid-area: l;}
+.p{grid-area: p;}
+
 #header{
   width: 100%;
   height: 150px;
   background-color: #86242a;
-  display: flex;
-  justify-content: center;
+  display:grid;
+  grid-template-columns:repeat(9,1fr);
+  grid-template-rows: repeat(1,fr);
+  grid-template-areas: 
+  ". . . . l . . . p"
+  ;
 }
 
 #div {
@@ -113,11 +120,14 @@ opacity: 1;
 
   #header{
     display: none;
+    
   }
 
-  #profilbilde{
-    width: 420px;
-    align-self: center;
-    border-radius: 0px;
-  }
+
+}
+
+#profilSide{
+  width: 100px;
+  height: 100px;
+  margin-top: 30px;
 }

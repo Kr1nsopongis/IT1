@@ -26,6 +26,7 @@
     </form>
     <a href="../brukerRegistrering/registrering.html" id="logIn">Registrer deg</a>
     <p id="registrert"></p>
+    <button id="tilMatch">Klar til å finne kjærligheten?</button>
 </body>
 <script type="module">
     // Import the functions you need from the SDKs you need
@@ -81,6 +82,7 @@
     // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
         console.log(uid);
+        document.getElementById("registrert").innerHTML = "Du er logget inn"
         localStorage.setItem("brukerID", uid);
     // ...
         } else {
@@ -95,6 +97,12 @@ function tilbakeTilStart(){
     document.location.href = "../startSide/index.html"
 }
 
+function tilSwipe(){
+    document.location.href = "../match-side/match.html"
+  }
+ 
+ 
+document.getElementById("tilMatch").addEventListener('click', tilSwipe)
 document.getElementById("logo").addEventListener('click', tilbakeTilStart)
 
 </script>

@@ -321,3 +321,7 @@ function getInfo() {
     document.getElementById("bio").innerText = bio;
 }
 
+function tilBrukerSide(){
+    document.location.href = "../brukerSide/brukerSide.html"
+  }
+  document.getElementById("profilSide").addEventListener('click', tilBrukerSide)
