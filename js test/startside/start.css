@@ -57,6 +57,9 @@ html, body {
 }
 
 .caption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
     left: 0;
     top: 40%;
@@ -102,11 +105,15 @@ html, body {
     width: 100%;
     height: 150px;
     background-color: #761f18;
-    display: grid;
-    grid-template-columns: 6;
-    grid-template-rows: 1;
-    grid-area: 
-    ". . l l . ."
-    ;
+    display: flex;
+    justify-content: center;
+
     position: relative;
+}
+
+.l{grid-area:l;}
+#nesteSide{
+    width: 250px;
+    height: 50px;
+    margin-top: 50px;
 }

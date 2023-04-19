@@ -10,7 +10,7 @@
 <body id="hoved">
 
     <header id="header">
-        <img src="Bilder/Logo.png" alt="" class="l" >
+        <img src="Bilder/Logo.png" alt="" class="l" id="logo" >
     </header>
 
     <h1 id="overskrift">Logg inn med en eksisterende bruker</h1>
@@ -88,6 +88,14 @@
     // User is signed out
     // ...
         }
+
 });
+
+function tilbakeTilStart(){
+    document.location.href = "../startSide/index.html"
+}
+
+document.getElementById("logo").addEventListener('click', tilbakeTilStart)
+
 </script>
 </html>

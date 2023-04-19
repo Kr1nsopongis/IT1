@@ -10,7 +10,7 @@
 </head>
 <body id="hoved">
     <header id="header">
-        <img src="../brukerRegistrering/Bilder/Logo.png" alt="" class="l" >
+        <img src="../brukerRegistrering/Bilder/Logo.png" alt="" class="l" id="logo" >
     </header>
 
     <div id="div">
@@ -71,5 +71,12 @@
     function startSwiping() {
 
     }
+
+    function tilbakeTilStart(){
+    document.location.href = "../startSide/index.html"
+}
+
+document.getElementById("logo").addEventListener('click', tilbakeTilStart)
+
 </script>
 </html>
