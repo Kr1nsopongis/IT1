@@ -72,7 +72,7 @@
     export const db = getFirestore(app);
 
    
-
+// Funksjonen oppretter en ny bruker med Firebase authentication.
     document.getElementById("registrer").addEventListener("click", trykketPåKnappenIG)
     async function trykketPåKnappenIG() {
         let email = document.getElementById("email").value;
@@ -95,6 +95,7 @@
         });
         
     }
+//oppretter et document som lagres under hver enkelt bruker med den nødvendige informasjonen.
     async function brukerOppretting() {
         try {
             let nyPersBrukernavn = document.getElementById("brukernavn").value;
@@ -116,11 +117,11 @@
                 kjonnPreferanse: kjonnPreferanse
             });
             console.log("Document written with ID: ", docRef.id);
-        }   catch (e) {
+        }   catch (e) { //hvis det over som står under "try" gir den ut en consoll error. Vi bruker try catch for at om denne feilen oppstår skal ikke dette stoppe hele resten av koden.
                 console.error("Error adding document: ", e);
             }
     }
-    function tilbakeTilStart(){
+    function tilbakeTilStart(){ //gjør at ved å klikke på logo kommer man tilbake til start.
     document.location.href = "../startSide/index.html"
 }
 

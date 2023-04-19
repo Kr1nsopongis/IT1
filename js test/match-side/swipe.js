@@ -76,7 +76,6 @@ if (spamCheck == 0) { //Spamcheck er for å hindre at man kan spamme knappene og
     }, 300 );
     setTimeout(() => { 
         
-        
         if(document.body.clientWidth >= 992) {
             div.style.top = '200px';
         } else {

@@ -1,5 +1,5 @@
 const width = 100;
-const height = 100;
+const height = 100; //Setter størrelsen på bildet som blir tegnet på canvaset
 
 let streaming = false;
 let canvas = null;
@@ -76,6 +76,7 @@ navigator.mediaDevices
         bilde.setAttribute("src", data);
       }
 
+      //har ikke fått til å gjøre noe med dette da jeg innså at base64 var for komplisert for dette prosjektet
       imgData = getBase64Image(canvas);
       localStorage.setItem("imgData", imgData);
 
