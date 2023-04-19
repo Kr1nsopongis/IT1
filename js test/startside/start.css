@@ -111,7 +111,8 @@ html, body {
     position: relative;
 }
 
-.l{grid-area:l;}
+.l{grid-area:l;
+    cursor: pointer;}
 #nesteSide{
     width: 250px;
     height: 50px;
@@ -121,6 +122,7 @@ html, body {
     border-radius: 5px;
     color: white;
     font-size: large;
+    cursor: pointer;
 }
 
 #logInn {
@@ -132,4 +134,5 @@ html, body {
     border-radius: 5px;
     color: #faac18;
     font-size: large;
+    cursor: pointer;
 }
