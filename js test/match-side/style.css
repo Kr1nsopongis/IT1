@@ -80,11 +80,16 @@ opacity: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 #flagg{
   height: 20px;
   width: 30px;
+}
+
+#logo {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 992px) {
