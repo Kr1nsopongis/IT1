@@ -43,7 +43,8 @@
     width: 150px;
 }
 
-.l{grid-area: l;}
+.l{grid-area: l;
+cursor: pointer;}
 
 #inputInteresse,#leggTil,#fjern{
     border: none;
@@ -59,6 +60,10 @@
   align-self: center;
 }
 
+#leggTil,#fjern{
+    cursor: pointer;
+}
+
 #sideValg{
     display: flex;
     flex-direction: row;
@@ -71,6 +76,7 @@
     border-radius: 3px;
     width: 180px;
     font-size: 14px;
+    cursor: pointer;
     
    
 }

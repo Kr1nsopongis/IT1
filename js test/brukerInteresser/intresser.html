@@ -11,7 +11,7 @@
 <body id="hoved">
     
     <header id="header">
-        <img src="../brukerRegistrering/Bilder/Logo.png" alt="" class="l" >
+        <img src="../brukerRegistrering/Bilder/Logo.png" alt="" class="l" id="logo">
     </header>
 
     <div id="interesseboks">
@@ -95,6 +95,11 @@
         document.getElementById("fjern").addEventListener("click", fjernInteresse);
         document.getElementById("gåVidere").addEventListener("click", gåVidere);
         document.getElementById("gåTilbake").addEventListener("click", gåTilbake);
+        document.getElementById("logo").addEventListener("click", start);
+
+        function start() {
+            document.location.href = "../startSide/index.html"
+        }
 
         //Sjekker etter tastaturtrykk
         document.onkeydown = function (e) {

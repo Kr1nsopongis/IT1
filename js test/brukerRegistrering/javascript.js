@@ -46,6 +46,7 @@ document.getElementById("bruker").addEventListener("submit", function(evt) {
         const nesteSide = document.createElement("button");
         nesteSide.style.width = "150px"
         nesteSide.style.alignSelf = "center"
+        nesteSide.style.cursor = "pointer"
         nesteSide.innerText = "Neste side"; 
         nesteSide.id = "nesteSide";
         
