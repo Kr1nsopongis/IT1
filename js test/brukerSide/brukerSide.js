@@ -110,4 +110,15 @@ function tilbakeTilStart(){
     document.location.href = "../startSide/index.html"
 }
 
+function tilPreferanser(){
+  document.location.href = "../preferanser/preferanser.html"
+}
+
+function tilInteresser(){
+  document.location.href = "../brukerInteresser/intresser.html"
+}
+
+document.getElementById("tilPreferanser").addEventListener('click', tilPreferanser)
 document.getElementById("logo").addEventListener('click', tilbakeTilStart)
+document.getElementById("tilInteresser").addEventListener('click', tilInteresser)
+
