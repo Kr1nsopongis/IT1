@@ -58,5 +58,8 @@
 
 #startKnapp,#brukernavn,#email,#fornavn,#etternavn{
     background-color: #FAAC18;
+}
+
+#startKnapp,#tilPreferanser,#tilInteresser,#logg-ut,#brukerKjonn {
     cursor: pointer;
 }

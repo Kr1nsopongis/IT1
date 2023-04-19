@@ -42,12 +42,14 @@
 
     <button id="tilPreferanser">Endre dine preferanser her</button>
     <button id="tilInteresser">Endre dine interesser her</button>
+    <button id="logg-ut">Logg ut</button>
     
 </body>
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
     import { getFirestore } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
     import { collection, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+    import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
         
      const firebaseConfig = {
         apiKey: "AIzaSyCoRH-HJRelRMyBqOr0NCE-Fx7sdUbjQsY",
@@ -58,10 +60,24 @@
         appId: "1:323999360874:web:fc7215729fdc361a98e713"
         };
 
+
         let brukerID = localStorage.getItem("brukerID");
 
         export const app = initializeApp(firebaseConfig);
         export const db = getFirestore(app);
+        export const auth = getAuth();
+
+        document.getElementById("logg-ut").addEventListener("click", loggUt);
+
+        function loggUt() {
+            signOut(auth).then(() => {
+  // Sign-out successful.
+            localStorage.setItem("brukerID", "")
+            document.location.href = "../startside/index.html"
+        }).catch((error) => {
+  // An error happened.
+        });
+        }
 
         const docRef = doc(db, "test", brukerID);
         const docSnap = await getDoc(docRef);
