@@ -60,3 +60,6 @@ html, body >*{
     color: white;       
 }
 
+#logg-inn, #logg-ut, .l {
+    cursor: pointer;
+}
