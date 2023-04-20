@@ -1,6 +1,7 @@
 const width = 100;
 const height = 100; //Setter størrelsen på bildet som blir tegnet på canvaset
-
+// koden som går på å ta eget profilbilde er hentet fra https://developer.mozilla.org/en-US/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos. 
+//
 let streaming = false;
 let canvas = null;
 let bilde = null;
@@ -77,7 +78,8 @@ navigator.mediaDevices
       }
 
       //har ikke fått til å gjøre noe med dette da jeg innså at base64 var for komplisert for dette prosjektet
-      imgData = getBase64Image(canvas);
+      //https://stackoverflow.com/questions/19183180/how-to-save-an-image-to-localstorage-and-display-it-on-the-next-page
+      imgData = getBase64Image(canvas)
       localStorage.setItem("imgData", imgData);
 
       function getBase64Image(img) {
