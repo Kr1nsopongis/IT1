@@ -117,7 +117,7 @@
                 kjonnPreferanse: kjonnPreferanse
             });
             console.log("Document written with ID: ", docRef.id);
-        }   catch (e) { //hvis det over som står under "try" gir den ut en consoll error. Vi bruker try catch for at om denne feilen oppstår skal ikke dette stoppe hele resten av koden.
+        }   catch (e) { //hvis det over som står under "try" ikke funker gir den ut en consoll error. Vi bruker try catch for at om denne feilen oppstår skal ikke dette stoppe hele resten av koden.
                 console.error("Error adding document: ", e);
             }
     }
