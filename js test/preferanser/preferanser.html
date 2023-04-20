@@ -7,6 +7,139 @@
     <title>preferanser</title>
     <!-- <script src="preferanser.js" defer></script> -->
     <link rel="stylesheet" href="preferanser.css">
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+        import { collection, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyCoRH-HJRelRMyBqOr0NCE-Fx7sdUbjQsY",
+            authDomain: "datingside-98657.firebaseapp.com",
+            projectId: "datingside-98657",
+            storageBucket: "datingside-98657.appspot.com",
+            messagingSenderId: "323999360874",
+            appId: "1:323999360874:web:fc7215729fdc361a98e713"
+        };
+    
+        let brukerID = localStorage.getItem("brukerID");
+    
+        export const app = initializeApp(firebaseConfig);
+        export const db = getFirestore(app);
+    
+        async function oppdaterPreferanser() {
+            try {
+                const docRef = await updateDoc(doc(db, "test", brukerID), {
+                    nasjonalitetPreferanse: valgteLand,
+                    kjonnPreferanse: valgteKjønn
+                });
+            } catch (e) {
+                console.error("Error adding document: ", e);
+            }
+        }
+    
+        const docRef = doc(db, "test", brukerID);
+        const docSnap = await getDoc(docRef);
+    
+        let valgteLand = [];
+        let valgteKjønn = [];
+    
+        if (docSnap.exists()) {
+            console.log("Document data:", docSnap.data());
+            let brukerData = docSnap.data();
+            console.log(brukerData);
+            valgteLand = brukerData.nasjonalitetPreferanse;
+            valgteKjønn = brukerData.kjonnPreferanse;
+        } else {
+        // docSnap.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    
+        oppdaterPreferanser()
+    
+        document.getElementById("flagg_ES").addEventListener("click", (event) => {click('ES')});
+        document.getElementById("flagg_AU").addEventListener("click", (event) => {click('AU')});
+        document.getElementById("flagg_BR").addEventListener("click", (event) => {click('BR')});
+        document.getElementById("flagg_CA").addEventListener("click", (event) => {click('CA')});
+        document.getElementById("flagg_CH").addEventListener("click", (event) => {click('CH')});
+        document.getElementById("flagg_DE").addEventListener("click", (event) => {click('DE')});
+        document.getElementById("flagg_FI").addEventListener("click", (event) => {click('FI')});
+        document.getElementById("flagg_FR").addEventListener("click", (event) => {click('FR')});
+        document.getElementById("flagg_GB").addEventListener("click", (event) => {click('GB')});
+        document.getElementById("flagg_IE").addEventListener("click", (event) => {click('IE')});
+        document.getElementById("flagg_IN").addEventListener("click", (event) => {click('IN')});
+        document.getElementById("flagg_MX").addEventListener("click", (event) => {click('MX')});
+        document.getElementById("flagg_NL").addEventListener("click", (event) => {click('NL')});
+        document.getElementById("flagg_NO").addEventListener("click", (event) => {click('NO')});
+        document.getElementById("flagg_RS").addEventListener("click", (event) => {click('RS')});
+        document.getElementById("flagg_TR").addEventListener("click", (event) => {click('TR')});
+        document.getElementById("flagg_UA").addEventListener("click", (event) => {click('UA')});
+        document.getElementById("flagg_US").addEventListener("click", (event) => {click('US')});
+    
+        document.getElementById("gåVidere").addEventListener("click", gåVidere);
+        document.getElementById("gåTilbake").addEventListener("click", gåTilbake);
+    
+    
+    
+    
+    
+        for(let i = 0; i < valgteLand.length; i++) {
+             document.getElementById("flagg_" + valgteLand[i]).classList.toggle('click');
+        }
+    
+        for(let i = 0; i < valgteKjønn.length; i++) {
+             document.getElementById("check" + valgteKjønn[i]).checked = true;
+        }
+    
+        function click(country) {
+            document.getElementById("flagg_" + country).classList.toggle('click');
+    
+            let posisjon = valgteLand.indexOf(country);
+            if (posisjon >= 0) {
+                valgteLand.splice(posisjon, 1);
+            }
+            else {
+                valgteLand.push(country);
+            }
+            console.log(valgteLand);
+        }
+    
+        function gåVidere() {
+            document.getElementById("laste").style.display = "block";
+            document.getElementById("overlay").style.display = "inline";
+            
+            localStorage.setItem("land", JSON.stringify(valgteLand));
+            let checkboxes = document.querySelectorAll('input[name="kjonn"]');
+            checkboxes.forEach((checkbox) => {
+                if (checkbox.checked === true) {
+                    if (!valgteKjønn.includes(checkbox.value)) {
+                        valgteKjønn.push(checkbox.value);
+                    }
+                }
+                else if (valgteKjønn.includes(checkbox.value)) {
+                    valgteKjønn.splice(checkbox.value, 1);
+                }
+    
+    
+            });
+            //alert(valgteKjønn);
+            oppdaterPreferanser()
+            // localStorage.setItem("kjonnPreferanse", JSON.stringify(valgteKjønn));
+            setTimeout(() => {
+                document.location.href = "../brukerInteresser/intresser.html";
+            }, "1000");
+            
+        }
+    
+        function gåTilbake() {
+            document.location.href = "../brukerRegistrering/registrering.html"
+        }
+        function tilbakeTilStart(){ //gjør at ved å klikke på logo kommer man tilbake til start.
+        document.location.href = "../startSide/index.html"
+    }
+    
+        document.getElementById("logo").addEventListener('click', tilbakeTilStart)
+    
+    </script>
 </head>
 <body id="hoved">
     <header id="header">
@@ -49,137 +182,5 @@
     </div>
    
 </body>
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
-    import { collection, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
-    
-    const firebaseConfig = {
-        apiKey: "AIzaSyCoRH-HJRelRMyBqOr0NCE-Fx7sdUbjQsY",
-        authDomain: "datingside-98657.firebaseapp.com",
-        projectId: "datingside-98657",
-        storageBucket: "datingside-98657.appspot.com",
-        messagingSenderId: "323999360874",
-        appId: "1:323999360874:web:fc7215729fdc361a98e713"
-    };
 
-    let brukerID = localStorage.getItem("brukerID");
-
-    export const app = initializeApp(firebaseConfig);
-    export const db = getFirestore(app);
-
-    async function oppdaterPreferanser() {
-        try {
-            const docRef = await updateDoc(doc(db, "test", brukerID), {
-                nasjonalitetPreferanse: valgteLand,
-                kjonnPreferanse: valgteKjønn
-            });
-        } catch (e) {
-            console.error("Error adding document: ", e);
-        }
-    }
-
-    const docRef = doc(db, "test", brukerID);
-    const docSnap = await getDoc(docRef);
-
-    let valgteLand = [];
-    let valgteKjønn = [];
-
-    if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
-        let brukerData = docSnap.data();
-        console.log(brukerData);
-        valgteLand = brukerData.nasjonalitetPreferanse;
-        valgteKjønn = brukerData.kjonnPreferanse;
-    } else {
-    // docSnap.data() will be undefined in this case
-        console.log("No such document!");
-    }
-
-    oppdaterPreferanser()
-
-    document.getElementById("flagg_ES").addEventListener("click", (event) => {click('ES')});
-    document.getElementById("flagg_AU").addEventListener("click", (event) => {click('AU')});
-    document.getElementById("flagg_BR").addEventListener("click", (event) => {click('BR')});
-    document.getElementById("flagg_CA").addEventListener("click", (event) => {click('CA')});
-    document.getElementById("flagg_CH").addEventListener("click", (event) => {click('CH')});
-    document.getElementById("flagg_DE").addEventListener("click", (event) => {click('DE')});
-    document.getElementById("flagg_FI").addEventListener("click", (event) => {click('FI')});
-    document.getElementById("flagg_FR").addEventListener("click", (event) => {click('FR')});
-    document.getElementById("flagg_GB").addEventListener("click", (event) => {click('GB')});
-    document.getElementById("flagg_IE").addEventListener("click", (event) => {click('IE')});
-    document.getElementById("flagg_IN").addEventListener("click", (event) => {click('IN')});
-    document.getElementById("flagg_MX").addEventListener("click", (event) => {click('MX')});
-    document.getElementById("flagg_NL").addEventListener("click", (event) => {click('NL')});
-    document.getElementById("flagg_NO").addEventListener("click", (event) => {click('NO')});
-    document.getElementById("flagg_RS").addEventListener("click", (event) => {click('RS')});
-    document.getElementById("flagg_TR").addEventListener("click", (event) => {click('TR')});
-    document.getElementById("flagg_UA").addEventListener("click", (event) => {click('UA')});
-    document.getElementById("flagg_US").addEventListener("click", (event) => {click('US')});
-
-    document.getElementById("gåVidere").addEventListener("click", gåVidere);
-    document.getElementById("gåTilbake").addEventListener("click", gåTilbake);
-
-
-
-
-
-    for(let i = 0; i < valgteLand.length; i++) {
-         document.getElementById("flagg_" + valgteLand[i]).classList.toggle('click');
-    }
-
-    for(let i = 0; i < valgteKjønn.length; i++) {
-         document.getElementById("check" + valgteKjønn[i]).checked = true;
-    }
-
-    function click(country) {
-        document.getElementById("flagg_" + country).classList.toggle('click');
-
-        let posisjon = valgteLand.indexOf(country);
-        if (posisjon >= 0) {
-            valgteLand.splice(posisjon, 1);
-        }
-        else {
-            valgteLand.push(country);
-        }
-        console.log(valgteLand);
-    }
-
-    function gåVidere() {
-        document.getElementById("laste").style.display = "block";
-        document.getElementById("overlay").style.display = "inline";
-        
-        localStorage.setItem("land", JSON.stringify(valgteLand));
-        let checkboxes = document.querySelectorAll('input[name="kjonn"]');
-        checkboxes.forEach((checkbox) => {
-            if (checkbox.checked === true) {
-                if (!valgteKjønn.includes(checkbox.value)) {
-                    valgteKjønn.push(checkbox.value);
-                }
-            }
-            else if (valgteKjønn.includes(checkbox.value)) {
-                valgteKjønn.splice(checkbox.value, 1);
-            }
-
-
-        });
-        //alert(valgteKjønn);
-        oppdaterPreferanser()
-        // localStorage.setItem("kjonnPreferanse", JSON.stringify(valgteKjønn));
-        setTimeout(() => {
-            document.location.href = "../brukerInteresser/intresser.html";
-        }, "1000");
-        
-    }
-
-    function gåTilbake() {
-        document.location.href = "../brukerRegistrering/registrering.html"
-    }
-    function tilbakeTilStart(){ //gjør at ved å klikke på logo kommer man tilbake til start.
-    document.location.href = "../startSide/index.html"
-}
-
-    document.getElementById("logo").addEventListener('click', tilbakeTilStart)
-
-</script>
 </html>

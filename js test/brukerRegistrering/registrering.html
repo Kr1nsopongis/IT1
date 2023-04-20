@@ -7,6 +7,90 @@
     <title>test</title>
     <script src="javascript.js" defer></script>
     <link rel="stylesheet" href="stilark.css">
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+        import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js"; 
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyCoRH-HJRelRMyBqOr0NCE-Fx7sdUbjQsY",
+          authDomain: "datingside-98657.firebaseapp.com",
+          projectId: "datingside-98657",
+          storageBucket: "datingside-98657.appspot.com",
+          messagingSenderId: "323999360874",
+          appId: "1:323999360874:web:fc7215729fdc361a98e713"
+        };
+    
+        let brukerID = "";
+      
+        // Initialize Firebase
+        export const app = initializeApp(firebaseConfig);
+        export const auth = getAuth(app);
+        export const db = getFirestore(app);
+    
+       
+    // Funksjonen oppretter en ny bruker med Firebase authentication.
+        document.getElementById("registrer").addEventListener("click", trykketPåKnappenIG)
+        async function trykketPåKnappenIG() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("passord").value;
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                brukerID = userCredential.user.uid;
+                console.log(brukerID);
+                localStorage.setItem("brukerID", brukerID);
+                // ...
+                brukerOppretting()
+                
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
+            
+        }
+    //oppretter et document som lagres under hver enkelt bruker med den nødvendige informasjonen.
+        async function brukerOppretting() {
+            try {
+                let nyPersBrukernavn = document.getElementById("brukernavn").value;
+                let nyPersEmail = document.getElementById("email").value;
+                let nyttNavn = document.getElementById("fornavn").value + " " + document.getElementById("etternavn").value;
+                let nyPersKjonn = document.querySelector('input[name ="kjonn"]:checked').value;
+                let interesser = [];
+                let kjonnPreferanse = [];
+                let nasjonalitetPreferanse = [];
+    
+                console.log(brukerID);
+                const docRef = await setDoc(doc(db, "test", brukerID), {
+                    email: nyPersEmail,
+                    brukernavn: nyPersBrukernavn,
+                    navn: nyttNavn,
+                    kjonn: nyPersKjonn,
+                    interesser: interesser,
+                    nasjonalitetPreferanse: nasjonalitetPreferanse,
+                    kjonnPreferanse: kjonnPreferanse
+                });
+                console.log("Document written with ID: ", docRef.id);
+            }   catch (e) { //hvis det over som står under "try" gir den ut en consoll error. Vi bruker try catch for at om denne feilen oppstår skal ikke dette stoppe hele resten av koden.
+                    console.error("Error adding document: ", e);
+                }
+        }
+        function tilbakeTilStart(){ //gjør at ved å klikke på logo kommer man tilbake til start.
+        document.location.href = "../startSide/index.html"
+    }
+    
+        document.getElementById("logo").addEventListener('click', tilbakeTilStart)
+    
+    </script>
 </head>
 <body id="hoved">
 
@@ -44,88 +128,4 @@
     </form>
     <p id="registrert"></p>
 </body>
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
-    import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
-    import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js"; 
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyCoRH-HJRelRMyBqOr0NCE-Fx7sdUbjQsY",
-      authDomain: "datingside-98657.firebaseapp.com",
-      projectId: "datingside-98657",
-      storageBucket: "datingside-98657.appspot.com",
-      messagingSenderId: "323999360874",
-      appId: "1:323999360874:web:fc7215729fdc361a98e713"
-    };
-
-    let brukerID = "";
-  
-    // Initialize Firebase
-    export const app = initializeApp(firebaseConfig);
-    export const auth = getAuth(app);
-    export const db = getFirestore(app);
-
-   
-// Funksjonen oppretter en ny bruker med Firebase authentication.
-    document.getElementById("registrer").addEventListener("click", trykketPåKnappenIG)
-    async function trykketPåKnappenIG() {
-        let email = document.getElementById("email").value;
-        let password = document.getElementById("passord").value;
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            brukerID = userCredential.user.uid;
-            console.log(brukerID);
-            localStorage.setItem("brukerID", brukerID);
-            // ...
-            brukerOppretting()
-            
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // ..
-        });
-        
-    }
-//oppretter et document som lagres under hver enkelt bruker med den nødvendige informasjonen.
-    async function brukerOppretting() {
-        try {
-            let nyPersBrukernavn = document.getElementById("brukernavn").value;
-            let nyPersEmail = document.getElementById("email").value;
-            let nyttNavn = document.getElementById("fornavn").value + " " + document.getElementById("etternavn").value;
-            let nyPersKjonn = document.querySelector('input[name ="kjonn"]:checked').value;
-            let interesser = [];
-            let kjonnPreferanse = [];
-            let nasjonalitetPreferanse = [];
-
-            console.log(brukerID);
-            const docRef = await setDoc(doc(db, "test", brukerID), {
-                email: nyPersEmail,
-                brukernavn: nyPersBrukernavn,
-                navn: nyttNavn,
-                kjonn: nyPersKjonn,
-                interesser: interesser,
-                nasjonalitetPreferanse: nasjonalitetPreferanse,
-                kjonnPreferanse: kjonnPreferanse
-            });
-            console.log("Document written with ID: ", docRef.id);
-        }   catch (e) { //hvis det over som står under "try" ikke funker gir den ut en consoll error. Vi bruker try catch for at om denne feilen oppstår skal ikke dette stoppe hele resten av koden.
-                console.error("Error adding document: ", e);
-            }
-    }
-    function tilbakeTilStart(){ //gjør at ved å klikke på logo kommer man tilbake til start.
-    document.location.href = "../startSide/index.html"
-}
-
-    document.getElementById("logo").addEventListener('click', tilbakeTilStart)
-
-</script>
 </html>

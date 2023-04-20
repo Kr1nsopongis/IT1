@@ -7,6 +7,87 @@
     <script src="brukerSide.js" defer></script>
     <link rel="stylesheet" href="brukerSide.css">
     <title>EasyLove</title>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+        import { collection, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+            
+         const firebaseConfig = {
+            apiKey: "AIzaSyCoRH-HJRelRMyBqOr0NCE-Fx7sdUbjQsY",
+            authDomain: "datingside-98657.firebaseapp.com",
+            projectId: "datingside-98657",
+            storageBucket: "datingside-98657.appspot.com",
+            messagingSenderId: "323999360874",
+            appId: "1:323999360874:web:fc7215729fdc361a98e713"
+            };
+    
+    
+            let brukerID = localStorage.getItem("brukerID");
+    
+            export const app = initializeApp(firebaseConfig);
+            export const db = getFirestore(app);
+            export const auth = getAuth();
+    
+            document.getElementById("logg-ut").addEventListener("click", loggUt);
+    
+            function loggUt() {
+                signOut(auth).then(() => {
+      // Sign-out successful.
+                localStorage.setItem("brukerID", "")
+                document.location.href = "../startside/index.html"
+            }).catch((error) => {
+      // An error happened.
+            });
+            }
+    
+            const docRef = doc(db, "test", brukerID);
+            const docSnap = await getDoc(docRef);
+    
+            if (docSnap.exists()) {
+            console.log("Document data:", docSnap.data());
+            let brukerData = docSnap.data();
+            let splittetNavn = brukerData.navn.split(" ");
+            console.log(brukerData);
+            document.getElementById("brukernavn").value = brukerData.brukernavn;
+            document.getElementById("email").value = brukerData.email
+            document.getElementById("fornavn").value = splittetNavn[0]
+            document.getElementById("etternavn").value = splittetNavn[1]
+            document.querySelector('input[value = ' + brukerData.kjonn + "]").checked = true;
+        } else {
+        // docSnap.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    
+            async function oppdaterBruker() {
+                console.log(brukerID)
+                let nyttBrukerNavn = document.getElementById("brukernavn").value
+                let nyEmail = document.getElementById("email").value
+                let nyttNavn = document.getElementById("fornavn").value + " " + document.getElementById("etternavn").value
+                let nyttKjonn = document.querySelector('input[name ="kjonn"]:checked').value;
+    
+                try {
+                    const docRef = await updateDoc(doc(db, "test", brukerID), {
+                        brukernavn: nyttBrukerNavn,
+                        email: nyEmail,
+                        navn: nyttNavn,
+                        kjonn: nyttKjonn
+                    
+                    })
+                }
+                catch (e){
+                    console.error("Error adding document: ", e)
+                }
+            }
+    
+        document.getElementById("brukernavn").addEventListener('change', oppdaterBruker)
+        document.getElementById("email").addEventListener('change', oppdaterBruker)
+        document.getElementById("fornavn").addEventListener('change', oppdaterBruker)
+        document.getElementById("etternavn").addEventListener('change', oppdaterBruker)
+    
+    
+    
+    </script>
 </head>
 <body id="hoved">
     <header id="header">
@@ -47,85 +128,4 @@
     <button id="tilMatch">Klar til å finne kjærligheten?</button>
     
 </body>
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
-    import { collection, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
-    import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-        
-     const firebaseConfig = {
-        apiKey: "AIzaSyCoRH-HJRelRMyBqOr0NCE-Fx7sdUbjQsY",
-        authDomain: "datingside-98657.firebaseapp.com",
-        projectId: "datingside-98657",
-        storageBucket: "datingside-98657.appspot.com",
-        messagingSenderId: "323999360874",
-        appId: "1:323999360874:web:fc7215729fdc361a98e713"
-        };
-
-
-        let brukerID = localStorage.getItem("brukerID");
-
-        export const app = initializeApp(firebaseConfig);
-        export const db = getFirestore(app);
-        export const auth = getAuth();
-
-        document.getElementById("logg-ut").addEventListener("click", loggUt);
-
-        function loggUt() {
-            signOut(auth).then(() => {
-  // Sign-out successful.
-            localStorage.setItem("brukerID", "")
-            document.location.href = "../startside/index.html"
-        }).catch((error) => {
-  // An error happened.
-        });
-        }
-
-        const docRef = doc(db, "test", brukerID);
-        const docSnap = await getDoc(docRef);
-
-        if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
-        let brukerData = docSnap.data();
-        let splittetNavn = brukerData.navn.split(" ");
-        console.log(brukerData);
-        document.getElementById("brukernavn").value = brukerData.brukernavn;
-        document.getElementById("email").value = brukerData.email
-        document.getElementById("fornavn").value = splittetNavn[0]
-        document.getElementById("etternavn").value = splittetNavn[1]
-        document.querySelector('input[value = ' + brukerData.kjonn + "]").checked = true;
-    } else {
-    // docSnap.data() will be undefined in this case
-        console.log("No such document!");
-    }
-
-        async function oppdaterBruker() {
-            console.log(brukerID)
-            let nyttBrukerNavn = document.getElementById("brukernavn").value
-            let nyEmail = document.getElementById("email").value
-            let nyttNavn = document.getElementById("fornavn").value + " " + document.getElementById("etternavn").value
-            let nyttKjonn = document.querySelector('input[name ="kjonn"]:checked').value;
-
-            try {
-                const docRef = await updateDoc(doc(db, "test", brukerID), {
-                    brukernavn: nyttBrukerNavn,
-                    email: nyEmail,
-                    navn: nyttNavn,
-                    kjonn: nyttKjonn
-                
-                })
-            }
-            catch (e){
-                console.error("Error adding document: ", e)
-            }
-        }
-
-    document.getElementById("brukernavn").addEventListener('change', oppdaterBruker)
-    document.getElementById("email").addEventListener('change', oppdaterBruker)
-    document.getElementById("fornavn").addEventListener('change', oppdaterBruker)
-    document.getElementById("etternavn").addEventListener('change', oppdaterBruker)
-
-
-
-</script>
 </html>
