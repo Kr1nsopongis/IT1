@@ -184,19 +184,13 @@ document.getElementById("moveRight").addEventListener("click", moveElementRight)
 //Definerer et par variabler som er nødvendig til bio-genereringen
 
 document.getElementById("startKnapp").addEventListener("click", startSwiping)
-document.getElementById("marcusModus").addEventListener("click", marcusModus)
 
-let marcusModus1 = 0;
 
-function marcusModus() {
-    marcusModus1 = 1;
-}
 
 function startSwiping() {
     getInfo()
     document.getElementById("laste").style.display = "block";
     document.getElementById("startKnapp").style.display = "none";
-    document.getElementById("marcusModus").style.display = "none";
     setTimeout(() => {
         document.getElementById("laste").style.display = "none";
         document.getElementById("overlay").style.display = "none";
@@ -228,12 +222,6 @@ function behandleSvar(svar) {
     document.getElementById("profilbilde").src = imgSrc;
     console.log(nasjonaliteten);
     document.getElementById("flagg").src = "../preferanser/flagg/" + nasjonaliteten + "_flagg.png";
-    if (marcusModus1 == 1) {
-        document.getElementById("bio").innerText = "OS OS OS OS OS OS OS OS OS OS OS OS OS OS OS OS OS";
-        document.getElementById("navn").innerText = "OS" + ", " + "os";
-        document.getElementById("profilbilde").src = "bilder/os.jpg";
-        document.getElementById("flagg").src = "bilder/osflagg.gif"
-    }
 }
 
 //Flere variabler og arrays for å lage bioer
