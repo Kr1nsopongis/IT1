@@ -7,28 +7,7 @@
     <title>Document</title>
     <!-- <script src="intresser.js" defer></script> -->
     <link rel="stylesheet" href="stilark.css">
-</head>
-<body id="hoved">
-    
-    <header id="header">
-        <img src="../brukerRegistrering/Bilder/Logo.png" alt="" class="l" id="logo">
-    </header>
 
-    <div id="interesseboks">
-         <h1>Legg til dine interesser</h1>
-        <ul id="interesser"></ul><br>
-        <input type="text" id="inputInteresse" required="required" autofocus placeholder="Skriv inn en interesse"><br>
-        <button type="submit" id="leggTil">Legg til</button><br>
-        <button id="fjern">Fjern</button><br>
-        
-    </div>
-    <div id="sideValg">
-            <button id="gåTilbake">Gå tilbake</button>
-            <button id="gåVidere">Gå videre</button>
-    </div>
-    <div class="OverLay" id="overlay">
-        <img src="bilder/lastegif.gif" alt="" id="laste">
-    </div>
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
         import { getFirestore } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
@@ -166,5 +145,28 @@
             document.location.href = "../preferanser/preferanser.html"
         }
     </script>
+</head>
+<body id="hoved">
+    
+    <header id="header">
+        <img src="../brukerRegistrering/Bilder/Logo.png" alt="" class="l" id="logo">
+    </header>
+
+    <div id="interesseboks">
+         <h1>Legg til dine interesser</h1>
+        <ul id="interesser"></ul><br>
+        <input type="text" id="inputInteresse" required="required" autofocus placeholder="Skriv inn en interesse"><br>
+        <button type="submit" id="leggTil">Legg til</button><br>
+        <button id="fjern">Fjern</button><br>
+        
+    </div>
+    <div id="sideValg">
+            <button id="gåTilbake">Gå tilbake</button>
+            <button id="gåVidere">Gå videre</button>
+    </div>
+    <div class="OverLay" id="overlay">
+        <img src="bilder/lastegif.gif" alt="" id="laste">
+    </div>
+    
 </body>
 </html>

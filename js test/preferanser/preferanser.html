@@ -124,7 +124,7 @@
             //alert(valgteKjønn);
             oppdaterPreferanser()
             // localStorage.setItem("kjonnPreferanse", JSON.stringify(valgteKjønn));
-            setTimeout(() => {
+            setTimeout(() => { //venter et sekund og displayer lasteikon for at firebase skal få tid til å reagere. 
                 document.location.href = "../brukerInteresser/intresser.html";
             }, "1000");
             
