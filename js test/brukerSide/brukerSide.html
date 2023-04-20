@@ -35,6 +35,9 @@
                 signOut(auth).then(() => {
       // Sign-out successful.
                 localStorage.setItem("brukerID", "")
+                localStorage.setItem("nasjonaliteter", "")
+                localStorage.setItem("kjonner", "")
+                localStorage.setItem("interesser", "")
                 document.location.href = "../startside/index.html"
             }).catch((error) => {
       // An error happened.
