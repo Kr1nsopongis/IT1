@@ -4,25 +4,29 @@ let setning = "jeg heter dette"
 let nyttOrd = ""
 let forskyvning = 3
 
-if (splittetSetning[i] == " "){
-    splittetSetning[i] = "*"
-    console.log(splittetSetning)
-}
+
 
 function kryptering() {
+
     splittetSetning = setning.split("");
 
+  
+
     for(let i = 0; i < splittetSetning.length; i++ ){
-    
+
+        if (splittetSetning[i] == " "){
+            splittetSetning[i] = "*"
+            console.log(splittetSetning)
+        }
         
         console.log(alfabet.indexOf(splittetSetning[i]))
         
         if (alfabet.indexOf(splittetSetning[i]) > (alfabet.length - forskyvning)){
-            let nyBokstav = splittetSetning[splittetSetning[i]+forskyvning - alfabet.length]
+            let nyBokstav = alfabet[alfabet.indexOf(splittetSetning[i])+forskyvning - alfabet.length]
             nyttOrd = nyttOrd +nyBokstav
             console.log(nyBokstav)
         } else {
-            nyBokstav = alfabet[alfabet.indexOf(splittetSetning[i] + forskyvning)] 
+            nyBokstav = alfabet[alfabet.indexOf(splittetSetning[i]) + forskyvning] 
             nyttOrd = nyttOrd + nyBokstav
             };
         }
@@ -31,6 +35,8 @@ function kryptering() {
        
     
     console.log(nyttOrd)
+
+    
 }
 
 document.getElementById("knapp").addEventListener('click',kryptering)
