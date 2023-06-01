@@ -4,7 +4,7 @@ let ordListe = ["og","i","det","på","som","er","en","til","å","han","av","for"
 let setning = "";
 let setningDelt = [];
 let nyttOrd = "";
-let forskyvning = 3;
+let forskyvning = 0;
 let ord = [];
 let poeng = [];
 let setningPoeng = 0;
@@ -91,6 +91,8 @@ function brute(){
 }
 
 function startKryptering(){
+    forskyvning = parseInt(document.getElementById("tall").value)
+
     definere();
     kryptering();
     console.log(nyttOrd);
@@ -99,6 +101,7 @@ function startKryptering(){
 }
 
 function startDekryptering(){
+    forskyvning = parseInt(document.getElementById("tall").value)
     document.getElementById("dekryptertOrd").innerHTML = ""
     dekrypter();
     
